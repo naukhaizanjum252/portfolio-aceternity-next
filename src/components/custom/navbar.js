@@ -2,25 +2,30 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   return (
     <div className="relative w-full flex items-center justify-center">
-      <NavbarElement className="top-2" />
-      <p className="text-black dark:text-white">
-        The Navbar will show on top of the page
-      </p>
+      <NavbarElement
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        className="top-2"
+      />
     </div>
   );
 };
 
-function NavbarElement({ className }) {
+function NavbarElement({ className, darkMode, setDarkMode }) {
   const [active, setActive] = useState(null);
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
+        <Link href={"/home"}>
+          <MenuItem setActive={setActive} active={false} item="Home"></MenuItem>
+        </Link>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -29,7 +34,7 @@ function NavbarElement({ className }) {
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
+        {/* <MenuItem setActive={setActive} active={active} item="Products">
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
               title="Algochurn"
@@ -56,7 +61,7 @@ function NavbarElement({ className }) {
               description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
             />
           </div>
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
@@ -65,6 +70,17 @@ function NavbarElement({ className }) {
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div>
         </MenuItem>
+        <div
+          onClick={() => {
+            setDarkMode(!darkMode);
+          }}
+        >
+          <MenuItem
+            setActive={setActive}
+            active={false}
+            item="Dark Mode"
+          ></MenuItem>
+        </div>
       </Menu>
     </div>
   );
