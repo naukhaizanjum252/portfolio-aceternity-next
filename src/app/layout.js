@@ -12,7 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={darkMode ? "dark" : "light"}>
       <body className={inter.className}>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <div className="relative w-full justify-center flex items-center">
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
         {children}
       </body>
     </html>
