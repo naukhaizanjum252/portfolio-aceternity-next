@@ -1,11 +1,11 @@
 import React from "react";
-import { MacbookScroll } from "../ui/macbook-scroll";
+import { MacbookScrollUI } from "../ui/macbook-scroll";
 import Link from "next/link";
 
-const MacbookScrollDemo = () => {
+const MacbookScroll = () => {
   return (
     <div className="overflow-hidden dark:bg-[#0B0B0F] bg-white w-full">
-      <MacbookScroll
+      <MacbookScrollUI
         title={
           <span>
             This Macbook is built with Tailwindcss. <br /> No kidding.
@@ -65,4 +65,4 @@ const Badge = ({ className }) => {
   );
 };
 
-export default MacbookScrollDemo;
+export default MacbookScroll;

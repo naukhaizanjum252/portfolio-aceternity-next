@@ -25,7 +25,7 @@ import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
 import Image from "next/image";
 
-export const MacbookScroll = ({ src, showGradient, title, badge }) => {
+export const MacbookScrollUI = ({ src, showGradient, title, badge }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
