@@ -10,7 +10,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       <NavbarElement
         darkMode={darkMode}
         setDarkMode={setDarkMode}
-        className="top-2"
+        className="top-10"
       />
     </div>
   );
