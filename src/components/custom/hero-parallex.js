@@ -4,101 +4,115 @@ import HeroParallaxUI from "../ui/hero-parallex";
 import { LogoNext } from "./svg";
 
 const HeroParallax = () => {
-  return <HeroParallaxUI products={products} />;
+  const renderHeader = () => {
+    return (
+      <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+        <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+          The Ultimate <br /> development studio
+        </h1>
+        <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+          We build beautiful products with the latest technologies and
+          frameworks. We are a team of passionate developers and designers that
+          love to build amazing products.
+        </p>
+      </div>
+    );
+  };
+  return <HeroParallaxUI products={products} renderHeader={renderHeader} />;
 };
 export const products = [
   {
     title: "Moonbeam",
     link: "https://gomoonbeam.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
   },
   {
     title: "Cursor",
     link: "https://cursor.so",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/cursor.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cursor.png",
   },
   {
     title: "Rogue",
     link: "https://userogue.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/rogue.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
   },
 
   {
     title: "Editorially",
     link: "https://editorially.org",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
   },
   {
     title: "Editrix AI",
     link: "https://editrix.ai",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/editrix.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/editrix.png",
   },
   {
     title: "Pixel Perfect",
     link: "https://app.pixelperfect.quest",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
   },
 
   {
     title: "Algochurn",
     link: "https://algochurn.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
   },
   {
     title: "Aceternity UI",
     link: "https://ui.aceternity.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/aceternityui.png",
   },
   {
     title: "Tailwind Master Kit",
     link: "https://tailwindmasterkit.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
   },
   {
     title: "SmartBridge",
     link: "https://smartbridgetech.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
   },
   {
     title: "Renderwork Studio",
     link: "https://renderwork.studio",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
   },
 
   {
     title: "Creme Digital",
     link: "https://cremedigital.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
   },
   {
     title: "Golden Bells Academy",
     link: "https://goldenbellsacademy.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
   },
   {
     title: "Invoker Labs",
     link: "https://invoker.lol",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
   },
   {
     title: "E Free Invoice",
     link: "https://efreeinvoice.com",
-    thumbnail: <LogoNext />,
-    //   "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+    thumbnail:
+      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
   },
 ];
 export default HeroParallax;

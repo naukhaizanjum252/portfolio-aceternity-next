@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const HeroParallaxUI = ({ products }) => {
+const HeroParallaxUI = ({ products, renderHeader }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -51,7 +51,7 @@ const HeroParallaxUI = ({ products }) => {
       ref={ref}
       className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <Header />
+      {renderHeader()}
       <motion.div
         style={{
           rotateX,

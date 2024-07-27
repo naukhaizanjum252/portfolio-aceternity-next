@@ -127,6 +127,13 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
           className="absolute inset-0 bg-[#010101] rounded-lg flex items-center justify-center"
         >
           <span className="text-white">
+            {/* image rendered on laptop screen */}
+            <Image
+              src={src}
+              height="600"
+              width="600"
+              className="object-cover object-left-top absolute h-full w-full inset-0"
+            />
             <AceternityLogo />
           </span>
         </div>
@@ -143,6 +150,8 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }) => {
         className="h-96 w-[32rem] absolute inset-0 bg-[#010101] rounded-2xl p-2"
       >
         <div className="absolute inset-0 bg-[#272729] rounded-lg" />
+
+        {/* Image rendered in motion */}
         <Image
           src={src}
           alt="aceternity logo"

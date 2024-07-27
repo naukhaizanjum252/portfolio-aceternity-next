@@ -16,7 +16,9 @@ const MacbookScroll = () => {
             <Badge className="h-10 w-10 transform -rotate-12" />
           </Link>
         }
-        src={`/linear.webp`}
+        src={
+          "https://aceternity.com/images/products/thumbnails/new/moonbeam.png"
+        }
         showGradient={false}
       />
     </div>
