@@ -5,6 +5,7 @@ import HeroParallax from "@/components/custom/hero-parallex";
 import HeroSection from "@/components/custom/hero-section";
 import InfiniteMovingCards from "@/components/custom/infinite-moving-cards";
 import MacbookScroll from "@/components/custom/macbook-scroll";
+import ContactUs from "./pages/contact-us";
 
 export default function Home() {
   return (
@@ -21,7 +22,9 @@ export default function Home() {
         <ThreeDCard />
         <InfiniteMovingCards />
         {/* use multiple of these pins render contact us and add upwork, whatsapp etc */}
-        <ThreeDPin />
+        <section id="contact-us">
+          <ContactUs />
+        </section>
       </main>
     </>
   );

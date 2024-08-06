@@ -23,7 +23,7 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
       <Menu setActive={setActive}>
-        <Link href={"/home"}>
+        <Link href={"/"}>
           <MenuItem setActive={setActive} active={false} item="Home"></MenuItem>
         </Link>
         <MenuItem setActive={setActive} active={active} item="Services">
@@ -70,7 +70,7 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div>
         </MenuItem>
-        <div
+        {/* <div
           onClick={() => {
             setDarkMode(!darkMode);
           }}
@@ -80,7 +80,20 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
             active={false}
             item="Dark Mode"
           ></MenuItem>
-        </div>
+        </div> */}
+        <a
+          onClick={() =>
+            document
+              .getElementById("contact-us")
+              .scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          <MenuItem
+            setActive={setActive}
+            active={false}
+            item="Contact Us"
+          ></MenuItem>
+        </a>
       </Menu>
     </div>
   );
