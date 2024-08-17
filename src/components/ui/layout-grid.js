@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 export const LayoutGridUI = ({ cards }) => {
   const [selected, setSelected] = useState(null);
   const [lastSelected, setLastSelected] = useState(null);
+
   const handleClick = (card) => {
     setLastSelected(selected);
     setSelected(card);
@@ -18,7 +18,7 @@ export const LayoutGridUI = ({ cards }) => {
   };
 
   return (
-    <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 relative">
+    <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative">
       {cards.map((card, i) => (
         <div key={i} className={cn(card.className, "")}>
           <motion.div
@@ -52,17 +52,40 @@ export const LayoutGridUI = ({ cards }) => {
 };
 
 const ImageComponent = ({ card }) => {
+  const [hover, setHover] = useState(false);
+
   return (
-    <motion.img
-      layoutId={`image-${card.id}-image`}
-      src={card.thumbnail}
-      height="500"
-      width="500"
-      className={cn(
-        "object-cover object-top absolute inset-0 h-full w-full transition duration-200"
+    <div
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <motion.img
+        layoutId={`image-${card.id}-image`}
+        src={card.thumbnail}
+        height="500"
+        width="500"
+        className={cn(
+          "object-cover object-top absolute inset-0 h-full w-full transition duration-200"
+        )}
+        alt="thumbnail"
+      />
+      {hover && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            y: -10,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+          }}
+          className="absolute mt-2.5 top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50"
+        >
+          <p className="text-white text-lg font-bold">Click to Expand</p>
+        </motion.div>
       )}
-      alt="thumbnail"
-    />
+    </div>
   );
 };
 
