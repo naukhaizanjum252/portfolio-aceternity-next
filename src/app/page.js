@@ -1,27 +1,32 @@
-import { ThreeDCard } from "@/components/custom/3d-card";
-import { ThreeDPin } from "@/components/custom/3d-pin";
-import BackgroundGradient from "@/components/custom/background-gradient";
-import HeroParallax from "@/components/custom/hero-parallex";
 import HeroSection from "@/components/custom/hero-section";
-import InfiniteMovingCards from "@/components/custom/infinite-moving-cards";
-import MacbookScroll from "@/components/custom/macbook-scroll";
 import ContactUs from "./pages/contact-us";
+import Testimonials from "./pages/testimonials";
+import ShortFormContent from "./pages/short-form-content";
+import LongFormContent from "./pages/long-form-content";
 
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02] dark">
+      <main className="min-h-screen bg-black antialiased bg-grid-white/[0.02] dark">
         <HeroSection />
-        <HeroParallax />
-        <MacbookScroll />
-        <div className="flex  justify-center p-4">
+        {/* <MacbookScroll /> */}
+        {/* <div className="flex  justify-center p-4">
           {[1, 2, 3, 4].map((e) => (
             <BackgroundGradient>{e}</BackgroundGradient>
           ))}
-        </div>
-        <ThreeDCard />
-        <InfiniteMovingCards />
+        </div> */}
+        {/* <ThreeDCard /> */}
         {/* use multiple of these pins render contact us and add upwork, whatsapp etc */}
+        {/* <StickyScrollReveal /> */}
+        <section id="short-form-content">
+          <ShortFormContent />
+        </section>
+        <section id="long-form-content">
+          <LongFormContent />
+        </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
         <section id="contact-us">
           <ContactUs />
         </section>

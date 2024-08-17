@@ -1,7 +1,7 @@
 import { ThreeDPin } from "@/components/custom/3d-pin";
 import Form from "@/components/custom/form";
+import { Globe } from "@/components/custom/globe";
 import Image from "next/image";
-import React from "react";
 
 const ContactUs = () => {
   const platforms = [
@@ -51,40 +51,45 @@ const ContactUs = () => {
   };
   return (
     <>
-      <h1 className="mt-20 ml-20 md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-        Contact Us
-      </h1>
-      <div className="flex flex-col md:flex-row">
-        <div className="flex flex-col md:w-2/3">
-          <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 ml-20 ">
-            We build beautiful products with the latest technologies and
-            frameworks. We are a team of passionate developers and designers
-            that love to build amazing products.
-          </p>
-          <div className="flex flex-row flex-wrap ml-20">
-            {platforms.map((platform) => (
-              <ThreeDPin
-                key={platform.urlTitle}
-                urlTitle={platform.urlTitle}
-                href={platform?.href}
-              >
-                <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[7rem] h-[8rem] ">
-                  <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">
+      <div className="flex flex-row">
+        <div className="flex flex-col ml-28  mt-20 ">
+          <h1 className="  md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+            Contact Us
+          </h1>
+          <div className="flex flex-col ">
+            <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200  ">
+              We build beautiful products with the latest technologies and
+              frameworks. We are a team of passionate developers and designers
+              that love to build amazing products.
+            </p>
+            <div className="flex flex-row mb-40">
+              {platforms.map((platform) => (
+                <ThreeDPin
+                  key={platform.urlTitle}
+                  urlTitle={platform.urlTitle}
+                  href={platform?.href}
+                >
+                  <div className="flex basis-full flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[3rem] h-[3rem]  ">
+                    {/* <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">
                     {platform?.cardTitle}
                   </h3>
                   <div className="text-base !m-0 !p-0 font-normal">
                     <span className="text-slate-500">
                       {platform?.description}
                     </span>
+                  </div> */}
+                    <Image height="150" width="150" src={platform?.thumbnail} />
+                    {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
                   </div>
-                  <Image height="150" width="150" src={platform?.thumbnail} />
-                  {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
-                </div>
-              </ThreeDPin>
-            ))}
+                </ThreeDPin>
+              ))}
+            </div>
           </div>
+          {/* <Form {...formData} /> */}
         </div>
-        <Form {...formData} />
+        <div className="ml-auto mr-20 w-[40rem]">
+          <Globe />
+        </div>
       </div>
     </>
   );

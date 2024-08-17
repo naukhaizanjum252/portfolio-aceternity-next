@@ -7,6 +7,7 @@ const nextConfig = {
       "upload.wikimedia.org",
       "cdn4.iconfinder.com",
       "cdn1.iconfinder.com",
+      "assets.aceternity.com"
     ],
   },
 };

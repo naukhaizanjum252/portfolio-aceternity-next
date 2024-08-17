@@ -3,6 +3,7 @@ import Spotlight from "./spotlight";
 import MovingBorderButton from "./moving-border-button";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import Image from "next/image";
+import { Lamp } from "../ui/lamp";
 
 const HeroSection = () => {
   const subTextArray = [
@@ -42,11 +43,12 @@ const HeroSection = () => {
       </div>
     );
   };
-  
+
   const subTextString =
     " Creating high-quality video content that tells your story in the most compelling way possible. From concept to final cut, I handle every aspect of video editing with meticulous attention to detail, ensuring your content resonates with your audience and stands out from the crowd.";
   return (
     <>
+      {/* <Lamp /> */}
       <Spotlight />
       <div className="h-auto md:h-[40rem] w-full rounded-md flex flex-col md:flex-row items-center md:items-start justify-center relative overflow-hidden mx-auto py-10 md:py-0">
         {renderAvatar()}

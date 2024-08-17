@@ -3,27 +3,21 @@ import React from "react";
 import HeroParallaxUI from "../ui/hero-parallex";
 import { LogoNext } from "./svg";
 
-const HeroParallax = () => {
-  const renderHeader = () => {
-    return (
-      <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-        <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-          The Ultimate <br /> development studio
-        </h1>
-        <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-          We build beautiful products with the latest technologies and
-          frameworks. We are a team of passionate developers and designers that
-          love to build amazing products.
-        </p>
-      </div>
-    );
-  };
-  return <HeroParallaxUI products={products} renderHeader={renderHeader} />;
+const HeroParallax = (props) => {
+  const { renderVideo, renderHeader } = props;
+  return (
+    <HeroParallaxUI
+      products={products}
+      renderHeader={renderHeader}
+      renderVideo={renderVideo}
+      renderThumbnail={true}
+    />
+  );
 };
 export const products = [
   {
     title: "Moonbeam",
-    link: "https://gomoonbeam.com",
+    link: "https://drive.google.com/file/d/1CQARk81vZ_WUwVXpqHq3iu7XDKdzefg0/view?usp=drive_link",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
   },
@@ -35,7 +29,7 @@ export const products = [
   },
   {
     title: "Rogue",
-    link: "https://userogue.com",
+    link: "https://drive.google.com/file/d/16ecPC5hxMFJ06OHNSj6KuXplOgIYz2i3/preview",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/rogue.png",
   },
@@ -104,7 +98,7 @@ export const products = [
   },
   {
     title: "Invoker Labs",
-    link: "https://invoker.lol",
+    link: "https://drive.google.com/file/d/16ecPC5hxMFJ06OHNSj6KuXplOgIYz2i3/preview",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/invoker.png",
   },
