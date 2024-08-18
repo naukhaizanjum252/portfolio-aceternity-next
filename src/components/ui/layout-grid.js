@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const LayoutGridUI = ({ cards }) => {
   const [selected, setSelected] = useState(null);
@@ -20,14 +21,14 @@ export const LayoutGridUI = ({ cards }) => {
   return (
     <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative">
       {cards.map((card, i) => (
-        <div key={i} className={cn(card.className, "")}>
+        <div key={i} className={cn("h-72 ", card.className)}>
           <motion.div
             onClick={() => handleClick(card)}
             className={cn(
               card.className,
               "relative overflow-hidden",
               selected?.id === card.id
-                ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
+                ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-xl h-full w-full"
                 : "bg-white rounded-xl h-full w-full"
@@ -59,13 +60,15 @@ const ImageComponent = ({ card }) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <motion.img
+      <Image
         layoutId={`image-${card.id}-image`}
         src={card.thumbnail}
-        height="500"
+        height="200"
         width="500"
         className={cn(
-          "object-cover object-top absolute inset-0 h-full w-full transition duration-200"
+          `${card.removeCover ? "" : "object-cover"} object-${
+            card.position || "top"
+          } absolute inset-0 h-full w-full transition duration-200`
         )}
         alt="thumbnail"
       />
@@ -91,35 +94,21 @@ const ImageComponent = ({ card }) => {
 
 const SelectedCard = ({ selected }) => {
   return (
-    <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
+    <div className=" h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[50]">
+      {/* Overlay with background opacity */}
       <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 0.6,
-        }}
-        className="absolute inset-0 h-full w-full bg-black opacity-60 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: selected ? 0.75 : 0 }}
+        className="absolute inset-0 h-full w-full bg-black z-10"
       />
+      {/* Content with separate styling */}
       <motion.div
         layoutId={`content-${selected?.id}`}
-        initial={{
-          opacity: 0,
-          y: 100,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          y: 100,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-        className="relative px-8 pb-4 z-[70]"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 100 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="relative px-8 pb-4 z-[70] bg-transparent" // Ensure the background of content is transparent
       >
         {selected?.content}
       </motion.div>
