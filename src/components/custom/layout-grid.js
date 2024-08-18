@@ -34,9 +34,8 @@ const cards = [
     id: 1,
     content: (
       <Skeleton
-        title="House in the woods"
-        description="A serene and tranquil retreat, this house in the woods offers a peaceful escape from the hustle and bustle of city life."
-        // borderColor="green-500"
+        title="Innovating Tomorrow: A Deep Dive into Tech Trends"
+        description="Craft compelling visual narratives that showcase the latest in technology. From AI breakthroughs to cybersecurity, these videos bring complex tech concepts to life, making them accessible and engaging for your audience."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-green-700 rounded-lg`} />
@@ -58,9 +57,8 @@ const cards = [
     id: 2,
     content: (
       <Skeleton
-        title="House above the clouds"
-        description="Perched high above the world, this house offers breathtaking views and a unique living experience. It's a place where the sky meets home, and tranquility is a way of life."
-        // borderColor="blue-500"
+        title="Beyond the Frame: The Art of Animation"
+        description="Bring stories to life with vibrant animation. This collection of videos showcases the magic of animation, from intricate character designs to seamless motion, perfect for capturing the imagination of any audience."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-indigo-800 rounded-lg`} />
@@ -80,9 +78,8 @@ const cards = [
     id: 3,
     content: (
       <Skeleton
-        title="Greens all over"
-        description="A house surrounded by greenery and nature's beauty. It's the perfect place to relax, unwind, and enjoy life."
-        // borderColor="green-500"
+        title="YouTube Unscripted: The Rise of Digital Creators"
+        description="Editing dynamic YouTube content that stands out in a crowded space. These videos are tailored to engage viewers, optimizing storytelling and pacing to keep your audience hooked from start to finish."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-red-800 rounded-lg`} />
@@ -102,9 +99,8 @@ const cards = [
     id: 4,
     content: (
       <Skeleton
-        title="Rivers are serene"
-        description="A house by the river is a place of peace and tranquility. It's the perfect place to relax, unwind, and enjoy life."
-        // borderColor="red-500"
+        title="Echoes of the Past: Unveiling History's Mysteries"
+        description="Expertly edited historical videos that transport viewers back in time. Each video is crafted to highlight significant events, using powerful visuals and narrative pacing to captivate and educate."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-red-900 rounded-lg`} />
@@ -125,9 +121,8 @@ const cards = [
     id: 5,
     content: (
       <Skeleton
-        title="Cosmic"
-        description="A house with a view of the cosmos. It's a place of wonder and awe."
-        // borderColor="red-500"
+        title="Inside the Mind: True Crime Uncovered"
+        description="Dive into the world of true crime with videos that unravel complex stories. These edits focus on building suspense and intrigue, turning real-life events into compelling narratives that keep viewers on the edge of their seats."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-red-900 rounded-lg`} />
@@ -148,9 +143,8 @@ const cards = [
     id: 6,
     content: (
       <Skeleton
-        title="Wildflower"
-        description="A house surrounded by wildflowers and nature's beauty. It's the perfect place to relax, unwind, and enjoy life."
-        // borderColor="green-500"
+        title="Digital Marketplaces: The Future of Commerce"
+        description="Editing videos that highlight the dynamic world of ecommerce. These videos focus on showcasing products, services, and strategies that drive online business success, with crisp visuals and engaging storytelling."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-green-500 rounded-lg`} />
@@ -171,9 +165,8 @@ const cards = [
     id: 7,
     content: (
       <Skeleton
-        title="Sunset"
-        description="A house with a view of the sunset. It's a place of serenity and tranquility."
-        // borderColor="yellow-500"
+        title="Through the Lens: Documenting the Real World"
+        description="Creating impactful documentaries that bring real-world stories to the screen. These videos are edited to convey powerful messages and deep emotions, providing viewers with a meaningful and immersive experience."
         button={
           <button className="p-[3px] relative">
             <div className={`absolute inset-0 bg-yellow-600 rounded-lg`} />

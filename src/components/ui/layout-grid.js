@@ -94,11 +94,11 @@ const ImageComponent = ({ card }) => {
 
 const SelectedCard = ({ selected }) => {
   return (
-    <div className=" h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[50]">
+    <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[50]">
       {/* Overlay with background opacity */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: selected ? 0.75 : 0 }}
+        animate={{ opacity: selected ? 0.7 : 0 }}
         className="absolute inset-0 h-full w-full bg-black z-10"
       />
       {/* Content with separate styling */}

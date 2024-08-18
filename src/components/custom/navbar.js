@@ -42,7 +42,16 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
             >
               Short Form Content
             </HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
+            <HoveredLink
+              onClick={() =>
+                document
+                  .getElementById("long-form-content")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              href=""
+            >
+              Long Form Content
+            </HoveredLink>
             <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
