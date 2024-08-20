@@ -1,6 +1,47 @@
-import { CardStack } from "@/components/custom/card-stack";
-import InfiniteMovingCards from "@/components/custom/infinite-moving-cards";
-import React from "react";
+import { CardStack, Highlight } from "@/components/custom/card-stack";
+
+const CARDS = [
+  {
+    id: 0,
+    name: "Borys",
+    designation: "Founder - BTG Media",
+    content: (
+      <p>
+        Naukhaiz does an outstanding job when it comes to editing, took videos
+        to another level and whats most important for me, He{" "}
+        <Highlight>works very fast</Highlight>
+        Been a pleasure to work with Him! 🎯
+      </p>
+    ),
+  },
+  {
+    id: 1,
+    name: "Elon Musk",
+    designation: "Senior Shitposter",
+    content: (
+      <p>
+        I dont like this Twitter thing,{" "}
+        <Highlight>deleting it right away</Highlight> because yolo. Instead, I
+        would like to call it <Highlight>X.com</Highlight> so that it can easily
+        be confused with adult sites.
+      </p>
+    ),
+  },
+  {
+    id: 2,
+    name: "Tyler Durden",
+    designation: "Manager Project Mayhem",
+    content: (
+      <p>
+        The first rule of
+        <Highlight>Fight Club</Highlight> is that you do not talk about fight
+        club. The second rule of
+        <Highlight>Fight club</Highlight> is that you DO NOT TALK about fight
+        club.
+      </p>
+    ),
+  },
+];
 
 const Testimonials = () => {
   return (
@@ -17,7 +58,7 @@ const Testimonials = () => {
             </p>
           </div>
           <div className="flex-1 flex justify-end">
-            <CardStack />
+            <CardStack cards={CARDS} />
             {/* <InfiniteMovingCards /> */}
           </div>
         </div>

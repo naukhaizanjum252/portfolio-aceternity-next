@@ -20,7 +20,7 @@ export const CardStackUI = ({ items, offset, scaleFactor }) => {
         newArray.unshift(newArray.pop()); // move the last element to the front
         return newArray;
       });
-    }, 5000);
+    }, 4000);
   };
 
   return (

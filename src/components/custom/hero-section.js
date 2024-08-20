@@ -52,7 +52,7 @@ const HeroSection = () => {
       <Spotlight />
       <div className="h-auto md:h-[40rem] w-full rounded-md flex flex-col md:flex-row items-center md:items-start justify-center relative overflow-hidden mx-auto py-10 md:py-0">
         {renderAvatar()}
-        <div className="p-4 relative z-10 w-full md:w-auto md:mr-0 md:ml-auto md:self-end">
+        <div className="p-4 relative  z-10 w-full md:w-auto md:mr-0 md:ml-auto md:self-end">
           <h1 className="mt-20 md:mt-10 mb-8 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
             Bringing Your Vision to Life,
             <TypewriterEffectSmooth words={subTextArray} />
