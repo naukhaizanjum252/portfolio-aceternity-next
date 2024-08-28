@@ -28,7 +28,7 @@ export const LayoutGridUI = ({ cards }) => {
               card.className,
               "relative overflow-hidden",
               selected?.id === card.id
-                ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full m-auto z-50 flex justify-center items-center flex-wrap flex-col"
+                ? "rounded-lg cursor-pointer absolute inset-0 h-1/4 w-full md:h-1/2  m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-white rounded-xl h-full w-full"
                 : "bg-white rounded-xl h-full w-full"
@@ -54,6 +54,7 @@ export const LayoutGridUI = ({ cards }) => {
 
 const ImageComponent = ({ card }) => {
   const [hover, setHover] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   return (
     <div
@@ -72,7 +73,7 @@ const ImageComponent = ({ card }) => {
         )}
         alt="thumbnail"
       />
-      {hover && (
+      {hover && !isMobile && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{

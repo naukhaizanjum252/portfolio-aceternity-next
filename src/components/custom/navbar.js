@@ -1,11 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { BottomGradient } from "./form";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
+  //useeffect to change the site to desktop mode
+  // useEffect(() => {
+  //   if (window.innerWidth < 768) {
+  //     const viewport = document.querySelector('meta[name="viewport"]');
+  //     if (viewport) {
+  //       viewport.setAttribute(
+  //         "content",
+  //         "width=1024, initial-scale=0.3, minimum-scale=0.3, maximum-scale=5, user-scalable=yes"
+  //       );
+  //       // window.location.reload(); // Reload for the new viewport to take effect
+  //     }
+  //   }
+  // }, []);
   return (
     <div className="relative w-full flex items-center justify-center">
       <NavbarElement

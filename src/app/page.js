@@ -7,7 +7,7 @@ import LongFormContent from "./pages/long-form-content";
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen bg-black antialiased bg-grid-white/[0.02] dark">
+      <main className=" min-h-screen bg-black antialiased bg-grid-white/[0.02] dark">
         <HeroSection />
         {/* <MacbookScroll /> */}
         {/* <div className="flex  justify-center p-4">

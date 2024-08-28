@@ -26,7 +26,7 @@ const HeroSection = () => {
 
   const renderAvatar = () => {
     return (
-      <div className="mt-20 md:mt-44 ml-10 md:ml-32 p-6 md:p-8 relative z-10 w-full md:w-auto flex flex-col items-center md:items-start">
+      <div className="mt-20 md:mt-44 ml-2 md:ml-32 p-6 md:p-8 relative z-10 w-full md:w-auto flex flex-col items-center md:items-start">
         <Image
           height="250"
           width="250"
@@ -54,7 +54,7 @@ const HeroSection = () => {
         {renderAvatar()}
         <div className="p-4 relative  z-10 w-full md:w-auto md:mr-0 md:ml-auto md:self-end">
           <h1 className="mt-20 md:mt-10 mb-8 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-            Bringing Your Vision to Life,
+            Bringing Your Vision to Life.
             <TypewriterEffectSmooth words={subTextArray} />
           </h1>
           <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-0">

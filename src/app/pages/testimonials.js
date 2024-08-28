@@ -1,4 +1,48 @@
 import { CardStack, Highlight } from "@/components/custom/card-stack";
+import InfiniteMovingCards from "@/components/custom/infinite-moving-cards";
+const testimonials = [
+  {
+    quote: (
+      <p>
+        Naukhaiz does an outstanding job when it comes to editing, took videos
+        to another level and whats most important for me, He{" "}
+        <Highlight>works very fast</Highlight>
+        Been a pleasure to work with Him! 🎯
+      </p>
+    ),
+    name: "Borys",
+    title: "Founder - BTG Media",
+  },
+  {
+    quote: (
+      <>
+        Naukhaiz has been a great editor for my agency who I’ve worked with for
+        around 6 months. He is always happy to make edits and tweaks until the
+        video is perfect and I’d definitely <Highlight> recommend </Highlight>{" "}
+        him to anyone needing video editing.
+      </>
+    ),
+    name: "Aaron McCullough",
+    title: "Founder - McCullough Marketing",
+  },
+  // {
+  //   quote: "All that we see or seem is but a dream within a dream.",
+  //   name: "Edgar Allan Poe",
+  //   title: "A Dream Within a Dream",
+  // },
+  // {
+  //   quote:
+  //     "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+  //   name: "Jane Austen",
+  //   title: "Pride and Prejudice",
+  // },
+  // {
+  //   quote:
+  //     "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+  //   name: "Herman Melville",
+  //   title: "Moby-Dick",
+  // },
+];
 
 const CARDS = [
   {
@@ -46,20 +90,20 @@ const CARDS = [
 const Testimonials = () => {
   return (
     <>
-      <div className=" ml-8 flex flex-col p-20">
-        <div className="flex justify-between items-start mt-8">
-          <div className="flex-1">
+      <div className=" md:ml-8 flex flex-col  p-10 md:p-20">
+        <div className="flex flex-col md:flex-row justify-between items-start mt-8">
+          <div className="flex-2  md:flex-1">
             <h1 className="md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
               Testimonials
             </h1>
-            <p className="max-w-xl text-base md:text-xl mt-8 dark:text-neutral-200 mb-4">
+            <p className="md:max-w-xl max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 mb-4">
               Discover the impact of working with me through the words of those
               who've experienced my passion and dedication firsthand.
             </p>
           </div>
-          <div className="flex-1 flex justify-end">
-            <CardStack cards={CARDS} />
-            {/* <InfiniteMovingCards /> */}
+          <div className="flex-1 flex-col justify-end">
+            {/* <CardStack cards={CARDS} /> */}
+            <InfiniteMovingCards testimonials={testimonials} />
           </div>
         </div>
       </div>
