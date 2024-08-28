@@ -1,21 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+import { convertGoogleDriveLink } from "@/lib/utils";
 
 const HeroParallaxUI = ({
   products,
   renderHeader,
   renderVideo = false,
-  renderThumbnail,
+  renderThumbnail = true,
 }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const firstRowRef = useRef(null);
+  const secondRowRef = useRef(null);
+  const thirdRowRef = useRef(null);
+
+  const firstRow = products.slice(0, 8);
+  const secondRow = products.slice(8, 16);
+  const thirdRow = products.slice(16, 25);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -49,6 +54,18 @@ const HeroParallaxUI = ({
     springConfig
   );
 
+  const scrollLeft = (ref) => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = (ref) => {
+    if (ref.current) {
+      ref.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   const renderCard = React.useCallback(
     (product, translate) => {
       return (
@@ -56,7 +73,7 @@ const HeroParallaxUI = ({
           style={{ x: translate }}
           whileHover={{ y: -20 }}
           key={product.title}
-          className="group/product h-96 w-[15rem] relative flex-shrink-0"
+          className="group/product h-96 w-[15rem] flex-shrink-0"
         >
           {renderVideo ? (
             <VideoPlayer url={product.link} />
@@ -74,7 +91,7 @@ const HeroParallaxUI = ({
   return (
     <div
       ref={ref}
-      className="md:pt-40  overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] md:mb-40"
+      className="md:pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] md:mb-40"
     >
       {renderHeader()}
       <motion.div
@@ -83,18 +100,69 @@ const HeroParallaxUI = ({
           rotateZ,
           translateY,
           opacity,
-          scale: isMobile ? 0.7 : 1, // Adjust this value as needed
+          scale: isMobile ? 0.7 : 1,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 md:mb-20">
-          {firstRow.map((product) => renderCard(product, translateX))}
-        </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
-          {secondRow.map((product) => renderCard(product, translateXReverse))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => renderCard(product, translateX))}
-        </motion.div>
+        <div className="relative">
+          <button
+            onClick={() => scrollLeft(firstRowRef)}
+            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() => scrollRight(firstRowRef)}
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+          >
+            &gt;
+          </button>
+          <motion.div
+            ref={firstRowRef}
+            className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-auto whitespace-nowrap md:mb-20 relative"
+          >
+            {firstRow.map((product) => renderCard(product, translateX))}
+          </motion.div>
+        </div>
+        <div className="relative">
+          <button
+            onClick={() => scrollLeft(secondRowRef)}
+            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() => scrollRight(secondRowRef)}
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+          >
+            &gt;
+          </button>
+          <motion.div
+            ref={secondRowRef}
+            className="flex space-x-20 flex-row overflow-x-auto whitespace-nowrap mb-20 relative"
+          >
+            {secondRow.map((product) => renderCard(product, translateXReverse))}
+          </motion.div>
+        </div>
+        <div className="relative">
+          <button
+            onClick={() => scrollLeft(thirdRowRef)}
+            className="absolute top-1/2  left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() => scrollRight(thirdRowRef)}
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+          >
+            &gt;
+          </button>
+          <motion.div
+            ref={thirdRowRef}
+            className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-auto whitespace-nowrap"
+          >
+            {thirdRow.map((product) => renderCard(product, translateX))}
+          </motion.div>
+        </div>
       </motion.div>
     </div>
   );
@@ -141,29 +209,31 @@ const ProductCard = React.memo(({ product }) => (
   </Link>
 ));
 
-const Thumbnail = ({ thumbnail, link, title }) => (
-  <Link
-    href={link}
-    target="__blank"
-    className="relative flex gap-10 h-full group/image"
-  >
-    <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
-      <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
-        <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
-        <Image
-          src={thumbnail}
-          alt={title}
-          width={800}
-          height={800}
-          className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
-        />
+const Thumbnail = ({ thumbnail, link, title }) => {
+  return (
+    <Link
+      href={link}
+      target="__blank"
+      className="relative flex gap-10 h-full group/image"
+    >
+      <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
+        <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
+          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
+          <Image
+            src={convertGoogleDriveLink(thumbnail)}
+            alt={title}
+            width={800}
+            height={800}
+            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
+          />
+        </div>
       </div>
-    </div>
-    <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-      {title}
-    </h2>
-  </Link>
-);
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+        {title}
+      </h2>
+    </Link>
+  );
+};
 
 export default HeroParallaxUI;
 export { Header, VideoPlayer, ProductCard, Thumbnail };

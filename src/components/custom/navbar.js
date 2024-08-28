@@ -65,8 +65,8 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
             >
               Long Form Content
             </HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
+            {/* <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
+            <HoveredLink href="/branding">Branding</HoveredLink> */}
           </div>
         </MenuItem>
         {/* <MenuItem setActive={setActive} active={active} item="Products">
@@ -97,14 +97,14 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
             />
           </div>
         </MenuItem> */}
-        <MenuItem setActive={setActive} active={active} item="Pricing">
+        {/* <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/hobby">Hobby</HoveredLink>
             <HoveredLink href="/individual">Individual</HoveredLink>
             <HoveredLink href="/team">Team</HoveredLink>
             <HoveredLink href="/enterprise">Enterprise</HoveredLink>
           </div>
-        </MenuItem>
+        </MenuItem> */}
         {/* <div
           onClick={() => {
             setDarkMode(!darkMode);
@@ -116,6 +116,19 @@ function NavbarElement({ className, darkMode, setDarkMode }) {
             item="Dark Mode"
           ></MenuItem>
         </div> */}
+        <a
+          onClick={() =>
+            document
+              .getElementById("testimonials")
+              .scrollIntoView({ behavior: "smooth" })
+          }
+        >
+          <MenuItem
+            setActive={setActive}
+            active={false}
+            item="Testimonials"
+          ></MenuItem>
+        </a>
         <a
           onClick={() =>
             document
