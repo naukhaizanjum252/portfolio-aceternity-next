@@ -3,7 +3,6 @@ import Spotlight from "./spotlight";
 import MovingBorderButton from "./moving-border-button";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import Image from "next/image";
-import { Lamp } from "../ui/lamp";
 
 const HeroSection = () => {
   const subTextArray = [
@@ -30,14 +29,14 @@ const HeroSection = () => {
         <Image
           height="250"
           width="250"
-          src="/images/profile-pic.png"
+          src="/images/3.png"
           alt="Profile Picture"
           className="rounded-full"
         />
         <h1 className="mt-4 md:mt-6 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
           Naukhaiz Anjum
         </h1>
-        <p className="mt-2 md:mt-4 text-base md:text-lg text-blue-400">
+        <p className="mt-2 md:mt-4 text-base md:text-lg text-blue-500">
           Video Editor
         </p>
       </div>
@@ -60,6 +59,7 @@ const HeroSection = () => {
           <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-0">
             {subTextString}
           </p>
+
           <div className="mt-8 flex justify-start">
             <MovingBorderButton btnText={"Explore"} />
           </div>

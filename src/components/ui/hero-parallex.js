@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { convertGoogleDriveLink } from "@/lib/utils";
+import { AnimatedModal } from "../custom/animated-modal";
 
 const HeroParallaxUI = ({
   products,
@@ -13,6 +14,7 @@ const HeroParallaxUI = ({
   renderThumbnail = true,
 }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [showModal, setShowModal] = useState(false);
 
   const firstRowRef = useRef(null);
   const secondRowRef = useRef(null);
@@ -74,6 +76,10 @@ const HeroParallaxUI = ({
           whileHover={{ y: -20 }}
           key={product.title}
           className="group/product h-[30rem] w-[16rem] flex-shrink-0"
+          onClick={() => {
+            console.log("inside click");
+            setShowModal(true);
+          }}
         >
           {renderVideo ? (
             <VideoPlayer url={product.link} />
@@ -164,6 +170,7 @@ const HeroParallaxUI = ({
           </motion.div>
         </div>
       </motion.div>
+      <AnimatedModal showModal={showModal} />
     </div>
   );
 };
@@ -211,27 +218,31 @@ const ProductCard = React.memo(({ product }) => (
 
 const Thumbnail = ({ thumbnail, link, title }) => {
   return (
-    <Link
-      href={link}
-      target="__blank"
-      className="relative flex gap-10 h-full group/image"
-    >
-      <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
-          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
-          <Image
-            src={convertGoogleDriveLink(thumbnail)}
-            alt={title}
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
-          />
+    <>
+      <Link
+        href={link}
+        target="__blank"
+        className="relative flex gap-10 h-full group/image"
+      >
+        {/* <AnimatedModal> */}
+        <div className="w-full mx-auto bg-transparent dark:bg-transparent group h-full">
+          <div className="flex flex-1 w-full h-full flex-col space-y-2 relative">
+            <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
+            <Image
+              src={convertGoogleDriveLink(thumbnail)}
+              alt={title}
+              width={800}
+              height={800}
+              className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none group-hover/image:blur-md transition-all duration-200"
+            />
+          </div>
         </div>
-      </div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {title}
-      </h2>
-    </Link>
+        <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+          {title}
+        </h2>
+        {/* </AnimatedModal> */}
+      </Link>
+    </>
   );
 };
 
