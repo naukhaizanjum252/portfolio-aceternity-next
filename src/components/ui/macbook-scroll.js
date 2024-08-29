@@ -32,13 +32,19 @@ export const MacbookScrollUI = ({ src, showGradient, title, badge }) => {
     offset: ["start start", "end start"],
   });
 
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    if (window && window.innerWidth < 768) {
-      setIsMobile(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window && window.innerWidth < 768) {
+  //     setIsMobile(true);
+  //   }
+  // }, []);
 
   const scaleX = useTransform(
     scrollYProgress,

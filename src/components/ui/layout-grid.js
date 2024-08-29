@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -54,7 +54,13 @@ export const LayoutGridUI = ({ cards }) => {
 
 const ImageComponent = ({ card }) => {
   const [hover, setHover] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+  const [isMobile, setIsMobile] = useState(false);
 
   return (
     <div

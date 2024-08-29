@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +13,13 @@ const HeroParallaxUI = ({
   renderVideo = false,
   renderThumbnail = true,
 }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+  const [isMobile, setIsMobile] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const firstRowRef = useRef(null);
@@ -23,6 +29,7 @@ const HeroParallaxUI = ({
   const firstRow = products.slice(0, 8);
   const secondRow = products.slice(8, 16);
   const thirdRow = products.slice(16, 25);
+
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -149,26 +156,28 @@ const HeroParallaxUI = ({
             {secondRow.map((product) => renderCard(product, translateXReverse))}
           </motion.div>
         </div>
-        <div className="relative">
-          <button
-            onClick={() => scrollLeft(thirdRowRef)}
-            className="absolute top-1/2  left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
-          >
-            &lt;
-          </button>
-          <button
-            onClick={() => scrollRight(thirdRowRef)}
-            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
-          >
-            &gt;
-          </button>
-          <motion.div
-            ref={thirdRowRef}
-            className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-auto whitespace-nowrap"
-          >
-            {thirdRow.map((product) => renderCard(product, translateX))}
-          </motion.div>
-        </div>
+        {thirdRow.length && (
+          <div className="relative">
+            <button
+              onClick={() => scrollLeft(thirdRowRef)}
+              className="absolute top-1/2  left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+            >
+              &lt;
+            </button>
+            <button
+              onClick={() => scrollRight(thirdRowRef)}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+            >
+              &gt;
+            </button>
+            <motion.div
+              ref={thirdRowRef}
+              className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-auto whitespace-nowrap"
+            >
+              {thirdRow.map((product) => renderCard(product, translateX))}
+            </motion.div>
+          </div>
+        )}
       </motion.div>
       <AnimatedModal showModal={showModal} />
     </div>

@@ -1,10 +1,8 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
 import { LayoutGridUI } from "../ui/layout-grid";
-import MovingBorderButton from "./moving-border-button";
 
 export function LayoutGrid() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   const cards = [
     {
       id: 1,

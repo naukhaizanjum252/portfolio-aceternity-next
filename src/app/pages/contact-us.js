@@ -4,10 +4,16 @@ import { FloatingDock } from "@/components/custom/floating-dock";
 import Form from "@/components/custom/form";
 import { Globe } from "@/components/custom/globe";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ContactUs = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+  const [isMobile, setIsMobile] = useState(false);
 
   const platforms = [
     {
