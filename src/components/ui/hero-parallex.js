@@ -73,7 +73,7 @@ const HeroParallaxUI = ({
           style={{ x: translate }}
           whileHover={{ y: -20 }}
           key={product.title}
-          className="group/product h-96 w-[15rem] flex-shrink-0"
+          className="group/product h-[30rem] w-[16rem] flex-shrink-0"
         >
           {renderVideo ? (
             <VideoPlayer url={product.link} />
