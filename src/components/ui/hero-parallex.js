@@ -27,7 +27,7 @@ const HeroParallaxUI = ({
   const thirdRowRef = useRef(null);
 
   const firstRow = products.slice(0, 8);
-  const secondRow = products.slice(8, 16);
+  const secondRow = products.slice(2, 10);
   const thirdRow = products.slice(16, 25);
 
   const ref = React.useRef(null);
@@ -156,7 +156,7 @@ const HeroParallaxUI = ({
             {secondRow.map((product) => renderCard(product, translateXReverse))}
           </motion.div>
         </div>
-        {thirdRow.length && (
+        {!!thirdRow.length && (
           <div className="relative">
             <button
               onClick={() => scrollLeft(thirdRowRef)}
@@ -185,7 +185,7 @@ const HeroParallaxUI = ({
 };
 
 const Header = () => (
-  <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+  <div className="max-w-7xl relative mx-auto pt-20 md:pt-40 px-4 w-full left-0 top-0">
     <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
       The Ultimate <br /> development studio
     </h1>

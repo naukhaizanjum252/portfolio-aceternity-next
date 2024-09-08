@@ -63,36 +63,36 @@ const products = [
     thumbnail:
       "https://drive.google.com/file/d/1MO4eUU_Jnk5hUASt2Lb30U8aXEV9i_P4/view?usp=drive_link",
   },
-  {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-  },
-  {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-  },
-  {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-  },
-  {
-    title: "Invoker Labs",
-    link: "https://efreeinvoice.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-  },
-  {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-  },
+  // {
+  //   title: "Renderwork Studio",
+  //   link: "https://renderwork.studio",
+  //   thumbnail:
+  //     "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
+  // },
+  // {
+  //   title: "Creme Digital",
+  //   link: "https://cremedigital.com",
+  //   thumbnail:
+  //     "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
+  // },
+  // {
+  //   title: "Golden Bells Academy",
+  //   link: "https://goldenbellsacademy.com",
+  //   thumbnail:
+  //     "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
+  // },
+  // {
+  //   title: "Invoker Labs",
+  //   link: "https://efreeinvoice.com",
+  //   thumbnail:
+  //     "https://aceternity.com/images/products/thumbnails/new/invoker.png",
+  // },
+  // {
+  //   title: "E Free Invoice",
+  //   link: "https://efreeinvoice.com",
+  //   thumbnail:
+  //     "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
+  // },
 ];
 
 const ShortFormContent = () => {
