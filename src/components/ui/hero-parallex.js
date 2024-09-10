@@ -104,7 +104,7 @@ const HeroParallaxUI = ({
   return (
     <div
       ref={ref}
-      className="md:pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] md:mb-40"
+      className="md:pt-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] "
     >
       {renderHeader()}
       <motion.div
@@ -151,7 +151,7 @@ const HeroParallaxUI = ({
           </button>
           <motion.div
             ref={secondRowRef}
-            className="flex space-x-20 flex-row overflow-x-auto whitespace-nowrap mb-20 relative"
+            className="flex space-x-20 flex-row overflow-x-auto whitespace-nowrap  relative"
           >
             {secondRow.map((product) => renderCard(product, translateXReverse))}
           </motion.div>
@@ -179,7 +179,7 @@ const HeroParallaxUI = ({
           </div>
         )}
       </motion.div>
-      <AnimatedModal showModal={showModal} />
+      {/* <AnimatedModal showModal={showModal} /> */}
     </div>
   );
 };
