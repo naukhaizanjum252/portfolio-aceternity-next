@@ -63,36 +63,37 @@ const products = [
     thumbnail:
       "https://drive.google.com/file/d/1MO4eUU_Jnk5hUASt2Lb30U8aXEV9i_P4/view?usp=drive_link",
   },
-  // {
-  //   title: "Renderwork Studio",
-  //   link: "https://renderwork.studio",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
-  // },
-  // {
-  //   title: "Creme Digital",
-  //   link: "https://cremedigital.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
-  // },
-  // {
-  //   title: "Golden Bells Academy",
-  //   link: "https://goldenbellsacademy.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
-  // },
-  // {
-  //   title: "Invoker Labs",
-  //   link: "https://efreeinvoice.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/invoker.png",
-  // },
-  // {
-  //   title: "E Free Invoice",
-  //   link: "https://efreeinvoice.com",
-  //   thumbnail:
-  //     "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
-  // },
+
+  {
+    title: "Creme Digital",
+    link: "https://drive.google.com/file/d/1vVmfmVWHAFoAqP6Y1_izr-Py6oQaUnLt/view?usp=drive_link",
+    thumbnail:
+      "https://drive.google.com/open?id=1oFvPF5_1o6JmOK7KTgLhyGJ_6MhFKgk6&usp=drive_copy",
+  },
+  {
+    title: "Golden Bells Academy",
+    link: "https://drive.google.com/file/d/1i0scwSKdIwTKgwizRUIpSzdrtqgsvrM-/view?usp=drive_link",
+    thumbnail:
+      "https://drive.google.com/open?id=1Of2On5e77KIBYWlLZLMKmkDGpQXfVJld&usp=drive_copy",
+  },
+  {
+    title: "Invoker Labs",
+    link: "https://drive.google.com/file/d/1bxonv2OSJ7y4IwFA8hhCP2cxHbPVGngV/view?usp=drive_link",
+    thumbnail:
+      "https://drive.google.com/open?id=1T8WZnkSepCGt2UD8G8d3Zld249TYdD_j&usp=drive_copy",
+  },
+  {
+    title: "E Free Invoice",
+    link: "https://drive.google.com/file/d/1fmLZcML5ZSXDp26SZOCK5EMmPT15kVtr/view?usp=drive_link",
+    thumbnail:
+      "https://drive.google.com/open?id=1KR5P-ia5bgzKHDl3nkMZFB6i-osF5okU&usp=drive_copy",
+  },
+  {
+    title: "E Free Invoice",
+    link: "https://drive.google.com/file/d/18vAbH7aDIZpWmK9_dsSSHIfQNm-OTd47/view?usp=drive_link",
+    thumbnail:
+      "https://drive.google.com/open?id=1dWcaoBpU2H8ZqGHONpGv2QNvFzX5gHfV&usp=drive_copy",
+  },
 ];
 
 const ShortFormContent = () => {

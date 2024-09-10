@@ -26,8 +26,8 @@ const HeroParallaxUI = ({
   const secondRowRef = useRef(null);
   const thirdRowRef = useRef(null);
 
-  const firstRow = products.slice(0, 8);
-  const secondRow = products.slice(2, 10);
+  const firstRow = products.slice(0, 10);
+  const secondRow = products.slice(5, 15);
   const thirdRow = products.slice(16, 25);
 
   const ref = React.useRef(null);
