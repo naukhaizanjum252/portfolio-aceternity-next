@@ -119,16 +119,17 @@ const HeroParallaxUI = ({
         <div className="relative">
           <button
             onClick={() => scrollLeft(firstRowRef)}
-            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
           >
             &lt;
           </button>
           <button
             onClick={() => scrollRight(firstRowRef)}
-            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
           >
             &gt;
           </button>
+
           <motion.div
             ref={firstRowRef}
             className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-auto whitespace-nowrap md:mb-20 relative"
@@ -139,16 +140,17 @@ const HeroParallaxUI = ({
         <div className="relative">
           <button
             onClick={() => scrollLeft(secondRowRef)}
-            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
           >
             &lt;
           </button>
           <button
             onClick={() => scrollRight(secondRowRef)}
-            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white text-black p-2 z-10"
+            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
           >
             &gt;
           </button>
+
           <motion.div
             ref={secondRowRef}
             className="flex space-x-20 flex-row overflow-x-auto whitespace-nowrap  relative"
