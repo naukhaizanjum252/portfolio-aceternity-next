@@ -1,5 +1,8 @@
 import { CardStack, Highlight } from "@/components/custom/card-stack";
 import InfiniteMovingCards from "@/components/custom/infinite-moving-cards";
+import { theme } from "../theme";
+const darkMode = true;
+
 const testimonials = [
   {
     quote: (
@@ -93,7 +96,11 @@ const Testimonials = () => {
       <div className=" md:ml-8 flex flex-col  p-10 md:p-20">
         <div className="flex flex-col md:flex-row justify-between items-start mt-8">
           <div className="flex-2  md:flex-1">
-            <h1 className="md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+            <h1
+              className={`md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text ${
+                theme(darkMode)?.["text-color"]
+              }`}
+            >
               Testimonials
             </h1>
             <p className="md:max-w-xl max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 mb-4">

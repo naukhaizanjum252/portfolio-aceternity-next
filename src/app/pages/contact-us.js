@@ -5,8 +5,10 @@ import Form from "@/components/custom/form";
 import { Globe } from "@/components/custom/globe";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { theme } from "../theme";
 
 const ContactUs = () => {
+  const darkMode = true;
   useEffect(() => {
     const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
     checkIsMobile();
@@ -97,7 +99,11 @@ const ContactUs = () => {
     <>
       <div className="flex md:flex-row flex-col">
         <div className="flex flex-col md:mt-20 ">
-          <h1 className=" ml-12 md:ml-28 md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+          <h1
+            className={`ml-12 md:ml-28 md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text ${
+              theme(darkMode)?.["text-color"]
+            }`}
+          >
             Let's Connect
           </h1>
           <div className="flex flex-col">

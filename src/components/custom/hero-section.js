@@ -3,23 +3,23 @@ import Spotlight from "./spotlight";
 import MovingBorderButton from "./moving-border-button";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import Image from "next/image";
+import { theme } from "@/app/theme";
 
+
+const darkMode = true;
 const HeroSection = () => {
   const subTextArray = [
     {
       text: "Frame",
-      className:
-        "font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400",
+      className: `font-bold bg-clip-text ${theme(darkMode)?.["text-color"]}`,
     },
     {
       text: "by",
-      className:
-        "font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400",
+      className: `font-bold bg-clip-text ${theme(darkMode)?.["text-color"]}`,
     },
     {
       text: "Frame.",
-      className:
-        "font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400",
+      className: `font-bold bg-clip-text ${theme(darkMode)?.["text-color"]}`,
     },
   ];
 
@@ -33,7 +33,11 @@ const HeroSection = () => {
           alt="Profile Picture"
           className="rounded-full"
         />
-        <h1 className="mt-4 md:mt-6 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+        <h1
+          className={`mt-4 md:mt-6 text-4xl md:text-5xl font-bold bg-clip-text ${
+            theme(darkMode)?.["text-color"]
+          }`}
+        >
           Naukhaiz Anjum
         </h1>
         <p className="mt-2 md:mt-4 text-base md:text-lg text-blue-500">
@@ -52,7 +56,11 @@ const HeroSection = () => {
       <div className="h-auto md:h-[40rem] w-full rounded-md flex flex-col md:flex-row items-center md:items-start justify-center relative overflow-hidden mx-auto py-10 md:py-0">
         {renderAvatar()}
         <div className="p-4 relative  z-10 w-full md:w-auto md:mr-0 md:ml-auto md:self-end">
-          <h1 className="mt-20 md:mt-10 mb-8 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+          <h1
+            className={`mt-20 md:mt-10 mb-8 text-4xl md:text-5xl font-bold bg-clip-text ${
+              theme(darkMode)?.["text-color"]
+            }`}
+          >
             Bringing Your Vision to Life.
             <TypewriterEffectSmooth words={subTextArray} />
           </h1>
