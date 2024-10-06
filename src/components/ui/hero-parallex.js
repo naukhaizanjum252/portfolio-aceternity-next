@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { convertGoogleDriveLink } from "@/lib/utils";
-import { AnimatedModal } from "../custom/animated-modal";
+import { CardsCarousel } from "../custom/apple-cards-carousel";
 
 const HeroParallaxUI = ({
   products,
@@ -26,8 +26,8 @@ const HeroParallaxUI = ({
   const secondRowRef = useRef(null);
   const thirdRowRef = useRef(null);
 
-  const firstRow = products.slice(0, 10);
-  const secondRow = products.slice(5, 15);
+  const firstRow = products.slice(0, 8);
+  const secondRow = products.slice(8, 15);
   const thirdRow = products.slice(16, 25);
 
   const ref = React.useRef(null);
@@ -113,49 +113,25 @@ const HeroParallaxUI = ({
           rotateZ,
           translateY,
           opacity,
-          scale: isMobile ? 0.7 : 1,
+          // scale: isMobile ? 0.7 : 1,
         }}
       >
         <div className="relative">
-          <button
-            onClick={() => scrollLeft(firstRowRef)}
-            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
-          >
-            &lt;
-          </button>
-          <button
-            onClick={() => scrollRight(firstRowRef)}
-            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
-          >
-            &gt;
-          </button>
-
           <motion.div
             ref={firstRowRef}
-            className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-auto whitespace-nowrap md:mb-20 relative"
+            className="flex space-x-20 flex-row-reverse space-x-reverse overflow-x-hidden whitespace-nowrap md:mb-20 relative"
           >
-            {firstRow.map((product) => renderCard(product, translateX))}
+            {/* {firstRow.map((product) => renderCard(product, translateX))} */}
+            <CardsCarousel data={firstRow} />
           </motion.div>
         </div>
         <div className="relative">
-          <button
-            onClick={() => scrollLeft(secondRowRef)}
-            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
-          >
-            &lt;
-          </button>
-          <button
-            onClick={() => scrollRight(secondRowRef)}
-            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-[#00f0ff] p-4 h-14 rounded-full shadow-md z-10 hover:bg-gray-700 hover:shadow-lg hover:shadow-[#00f0ff] transition-all duration-200 ease-in-out"
-          >
-            &gt;
-          </button>
-
           <motion.div
             ref={secondRowRef}
             className="flex space-x-20 flex-row overflow-x-auto whitespace-nowrap  relative"
           >
-            {secondRow.map((product) => renderCard(product, translateXReverse))}
+            <CardsCarousel data={secondRow} />
+            {/* {secondRow.map((product) => renderCard(product, translateXReverse))} */}
           </motion.div>
         </div>
         {!!thirdRow.length && (
@@ -181,7 +157,6 @@ const HeroParallaxUI = ({
           </div>
         )}
       </motion.div>
-      {/* <AnimatedModal showModal={showModal} /> */}
     </div>
   );
 };

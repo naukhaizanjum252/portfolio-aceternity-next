@@ -1,6 +1,5 @@
 "use client";
 import HeroParallax from "@/components/custom/hero-parallex";
-import React from "react";
 
 const products = [
   {
