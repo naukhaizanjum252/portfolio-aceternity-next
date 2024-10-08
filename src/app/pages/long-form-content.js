@@ -1,5 +1,7 @@
+import { BentoGridCustom } from "@/components/custom/bento-grid";
 import { LayoutGrid } from "@/components/custom/layout-grid";
 import React from "react";
+
 
 const LongFormContent = () => {
   const renderHeader = () => {
@@ -22,7 +24,8 @@ const LongFormContent = () => {
   return (
     <>
       {renderHeader()}
-      <LayoutGrid />
+      <BentoGridCustom />
+      {/* <LayoutGrid /> */}
     </>
   );
 };
