@@ -35,9 +35,9 @@ export const CardsCarousel = ({ data }) => {
           <div className="relative h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem] rounded-3xl overflow-hidden">
             <iframe
               id="videoFrame"
-              className="h-full w-full rounded-3xl"
+              class="h-full w-full rounded-3xl"
               src={convertGoogleDriveLink(card?.link)}
-              // allow="autoplay; encrypted-media"
+              allow="autoplay; encrypted-media"
               onLoad={() => setLoading(false)}
             ></iframe>
           </div>
