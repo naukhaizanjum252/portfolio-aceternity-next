@@ -269,7 +269,7 @@ export const BlurImage = ({
   const [isLoading, setLoading] = useState(true);
   return (
     <>
-      <Link href={link} target="__blank">
+      {/* <Link href={link} target="__blank"> */}
         <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
         <Image
           className={cn(
@@ -287,7 +287,7 @@ export const BlurImage = ({
           alt={alt ? alt : "Background of a beautiful view"}
           {...rest}
         />
-      </Link>
+      {/* </Link> */}
     </>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 import HeroParallax from "@/components/custom/hero-parallex";
+import ReactPlayer from "react-player";
 
 const products = [
   {
@@ -96,6 +97,15 @@ const products = [
 ];
 
 const ShortFormContent = () => {
+  function showVideo(thumbnail) {
+    // Hide the thumbnail
+    thumbnail.style.display = "none";
+
+    // Find the iframe within the same container as the thumbnail and show it
+    const iframe = thumbnail.parentElement.querySelector("iframe");
+    iframe.classList.remove("hidden");
+  }
+
   const renderHeader = () => {
     return (
       <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
@@ -116,6 +126,22 @@ const ShortFormContent = () => {
   };
   return (
     <>
+      {/* <div class="relative w-full max-w-md pb-[56.25%] rounded-2xl shadow-lg overflow-hidden bg-gray-100">
+        <img
+          src="https://drive.google.com/open?id=1dWcaoBpU2H8ZqGHONpGv2QNvFzX5gHfV&usp=drive_copy"
+          alt="Video Thumbnail"
+          class="absolute top-0 left-0 w-full h-full object-cover rounded-lg cursor-pointer"
+          onclick="showVideo(this)"
+        />
+
+        <iframe
+          id="videoFrame"
+          class="absolute top-0 left-0 w-full h-full rounded-lg hidden"
+          src="https://drive.google.com/file/d/18vAbH7aDIZpWmK9_dsSSHIfQNm-OTd47/preview"
+          allow="autoplay"
+        ></iframe>
+      </div> */}
+
       <HeroParallax
         products={products}
         renderVideo={false}

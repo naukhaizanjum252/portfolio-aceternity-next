@@ -61,7 +61,14 @@ const HeroSection = () => {
           </p>
 
           <div className="mt-8 flex justify-start">
-            <MovingBorderButton btnText={"Explore"} />
+            <MovingBorderButton
+              onClick={() =>
+                document
+                  .getElementById("short-form-content")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              btnText={"Explore"}
+            />
           </div>
         </div>
       </div>

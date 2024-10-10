@@ -2,18 +2,61 @@
 import Image from "next/image";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Spin } from "antd";
 
+const convertGoogleDriveLink = (url) => {
+  // Regular expression to match the Google Drive URL structure
+  const regex =
+    /https:\/\/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)\/view.*?/;
+
+  // Replace the matched link with the preview format
+  const match = url.match(regex);
+  if (match) {
+    return `https://drive.google.com/file/d/${match[1]}/preview`;
+  }
+
+  // Return the original URL if it doesn't match the expected format
+  return url;
+};
 export const CardsCarousel = ({ data }) => {
-  console.log(data, "data");
+  const [playerVisible, setPlayerVisible] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const cards = data?.map((card, index) => (
-    <motion.div
-      //   style={{ x: translate }}
-      whileHover={{ y: -20 }}
-      //   key={product.title}
-      //   className="group/product h-[30rem] w-[16rem] flex-shrink-0"
-    >
-      <Card key={card.link} card={card} index={index} {...card} />
-    </motion.div>
+    <>
+      {playerVisible === index ? (
+        <>
+          {loading && (
+            <div className="absolute inset-0 flex items-center justify-center rounded-3xl  h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem]  z-10">
+              <Spin />
+            </div>
+          )}
+          <div className="relative h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem] rounded-3xl overflow-hidden">
+            <iframe
+              id="videoFrame"
+              className="h-full w-full rounded-3xl"
+              src={convertGoogleDriveLink(card?.link)}
+              // allow="autoplay; encrypted-media"
+              onLoad={() => setLoading(false)}
+            ></iframe>
+          </div>
+        </>
+      ) : (
+        <motion.div
+          //   style={{ x: translate }}
+          whileHover={{ y: -20 }}
+          onClick={() => {
+            setLoading(true);
+            setPlayerVisible(index);
+          }}
+          //   key={product.title}
+          //   className="group/product h-[30rem] w-[16rem] flex-shrink-0"
+        >
+          <Card key={card.link} card={card} index={index} {...card} />
+        </motion.div>
+      )}
+    </>
   ));
 
   return (
