@@ -38,7 +38,7 @@ const PricingCard = ({ title, description, price, features, icon }) => {
         <Button
           type="primary"
           className="w-full bg-blue-500 hover:bg-blue-600 border-none text-white"
-          href={`wa.me/+923314411708?text=Hi%20Naukhaiz,%20I%20would%20like%20to%20buy%20your%20${title}%20Package.`}
+          href={`https://wa.me/+923314411708?text=Hi%20Naukhaiz,%20I%20would%20like%20to%20buy%20your%20${title}%20Package.`}
           target="_blank"
         >
           Get Package
