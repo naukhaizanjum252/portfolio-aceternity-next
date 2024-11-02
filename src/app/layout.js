@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         {!isMobile && (
           <div className="relative w-full justify-center flex items-center">
-            <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+            {/* <Navbar darkMode={darkMode} setDarkMode={setDarkMode} /> */}
           </div>
         )}
         {children}
