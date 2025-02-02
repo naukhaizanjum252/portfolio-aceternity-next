@@ -21,6 +21,7 @@ const HeroParallaxUI = ({
   }, []);
   const [isMobile, setIsMobile] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [effectsApplied, setEffectsApplied] = useState(false);
 
   const firstRowRef = useRef(null);
   const secondRowRef = useRef(null);
@@ -84,7 +85,6 @@ const HeroParallaxUI = ({
           key={product.title}
           className="group/product h-[30rem] w-[16rem] flex-shrink-0"
           onClick={() => {
-            console.log("inside click");
             setShowModal(true);
           }}
         >
@@ -101,6 +101,33 @@ const HeroParallaxUI = ({
     [renderVideo, renderThumbnail]
   );
 
+  useEffect(() => {
+    // Listen for changes in the animation values
+    const unsubscribeX = rotateX.on("change", (value) => {
+      if (value === 0) checkCompletion();
+    });
+
+    const unsubscribeZ = rotateZ.on("change", (value) => {
+      if (value === 0) checkCompletion();
+    });
+
+    const unsubscribeY = translateY.on("change", (value) => {
+      if (value === 50) checkCompletion();
+    });
+
+    return () => {
+      unsubscribeX();
+      unsubscribeZ();
+      unsubscribeY();
+    };
+  }, []);
+
+  const checkCompletion = () => {
+    if (rotateX.get() === 0 && rotateZ.get() === 0 && translateY.get() === 50) {
+      setEffectsApplied(true);
+    }
+  };
+
   return (
     <div
       ref={ref}
@@ -113,6 +140,7 @@ const HeroParallaxUI = ({
           rotateZ,
           translateY,
           opacity,
+          pointerEvents: !effectsApplied && isMobile && "none",
           // scale: isMobile ? 0.7 : 1,
         }}
       >
