@@ -4,6 +4,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Spin } from "antd";
+import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 
 const convertGoogleDriveLink = (url) => {
   // Regular expression to match the Google Drive URL structure
@@ -54,6 +55,7 @@ export const CardsCarousel = ({ data }) => {
           //   className="group/product h-[30rem] w-[16rem] flex-shrink-0"
         >
           <Card key={card.link} card={card} index={index} {...card} />
+          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
         </motion.div>
       )}
     </>
