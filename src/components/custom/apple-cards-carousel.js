@@ -20,46 +20,65 @@ const convertGoogleDriveLink = (url) => {
   // Return the original URL if it doesn't match the expected format
   return url;
 };
-export const CardsCarousel = ({ data }) => {
+export const CardsCarousel = ({ data, renderDirectly = false }) => {
   const [playerVisible, setPlayerVisible] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const cards = data?.map((card, index) => (
-    <>
-      {playerVisible === index ? (
-        <>
-          {loading && (
-            <div className="absolute inset-0 flex items-center justify-center rounded-3xl  h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem]  z-10">
-              <Spin />
-            </div>
-          )}
-          <div className="relative h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem] rounded-3xl overflow-hidden">
-            <iframe
-              id="videoFrame"
-              class="h-full w-full rounded-3xl"
-              src={convertGoogleDriveLink(card?.link)}
-              allow="autoplay; encrypted-media"
-              onLoad={() => setLoading(false)}
-            ></iframe>
+  const cards = data?.map((card, index) =>
+    renderDirectly ? (
+      <>
+        {loading && (
+          <div className="absolute inset-0 flex items-center justify-center rounded-3xl  h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem]  z-10">
+            <Spin />
           </div>
-        </>
-      ) : (
-        <motion.div
-          //   style={{ x: translate }}
-          whileHover={{ y: -20 }}
-          onClick={() => {
-            setLoading(true);
-            setPlayerVisible(index);
-          }}
-          //   key={product.title}
-          //   className="group/product h-[30rem] w-[16rem] flex-shrink-0"
-        >
-          <Card key={card.link} card={card} index={index} {...card} />
-          <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
-        </motion.div>
-      )}
-    </>
-  ));
+        )}
+        <div className="relative h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem] rounded-3xl overflow-hidden">
+          <iframe
+            id="videoFrame"
+            class="h-full w-full rounded-3xl"
+            src={convertGoogleDriveLink(card?.link)}
+            allow="autoplay; encrypted-media"
+            onLoad={() => setLoading(false)}
+          ></iframe>
+        </div>
+      </>
+    ) : (
+      <>
+        {playerVisible === index ? (
+          <>
+            {loading && (
+              <div className="absolute inset-0 flex items-center justify-center rounded-3xl  h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem]  z-10">
+                <Spin />
+              </div>
+            )}
+            <div className="relative h-[20rem] w-[15rem] md:h-[40rem] md:w-[25rem] rounded-3xl overflow-hidden">
+              <iframe
+                id="videoFrame"
+                class="h-full w-full rounded-3xl"
+                src={convertGoogleDriveLink(card?.link)}
+                allow="autoplay; encrypted-media"
+                onLoad={() => setLoading(false)}
+              ></iframe>
+            </div>
+          </>
+        ) : (
+          <motion.div
+            //   style={{ x: translate }}
+            whileHover={{ y: -20 }}
+            onClick={() => {
+              setLoading(true);
+              setPlayerVisible(index);
+            }}
+            //   key={product.title}
+            //   className="group/product h-[30rem] w-[16rem] flex-shrink-0"
+          >
+            <Card key={card.link} card={card} index={index} {...card} />
+            <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
+          </motion.div>
+        )}
+      </>
+    )
+  );
 
   return (
     // <div className="w-full h-full py-20">

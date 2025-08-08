@@ -15,6 +15,7 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/18l6OQ28oR0VYwA6JJVbLw37Lww3AYK53?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18KlARBcdQCjUkXAKWOduFXHHjBQrwcRb",
+    link: "/detail/tech",
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/1lXFU-UUfTzx4fPXCA76858ghH8ywJgcw?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18LSgp1NV1c6513VRuPxJlwAkN9_KkzgG",
+    link: "/detail/animation",
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/1y-R4Si3Co12gNPggEHi42a2y9iZ9d1Ru?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18M7rHSZzFG0A1ImL-tCgesDwyiURPHJa",
+    link: "/detail/youtube",
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/1OY2EG9o6n0U367_tFqRhQyp718idw9kM?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18No4E4Iit08UO5aHJ9P3KdLNvnAVQohk",
+    link: "/detail/history",
   },
   {
     id: 5,
@@ -55,6 +59,7 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/1WXPrCsQx9HxyWmmQE7gPb-mZXWYqts07?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18RImXxCn_7XZ1psz3CAezWTfc-cg3EBn",
+    link: "/detail/crime",
   },
   {
     id: 6,
@@ -65,6 +70,7 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/1wQxJQ9WEO7JYkoJpH6-IJCWPauLAQTr0?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18VlZZRwqVQApeurilMf7zpaT7us9kyhS",
+    link: "/detail/ecom",
   },
   {
     id: 7,
@@ -75,12 +81,13 @@ const longFormCards = [
       "https://drive.google.com/drive/folders/1bUq4FdPqG0of7w7xCgKUz2fbOuE80Wmj?usp=drive_link",
     thumbnail:
       "https://drive.google.com/uc?id=18VvVIIvEwVNxZGfhTv0W26x7uEIVsfK_",
+    link: "/detail/documentary",
   },
 ];
 
 export function BentoGridCustom() {
   const [hovered, setHovered] = useState(null);
-  console.log(hovered, "hovered");
+
   return (
     <BentoGrid className="max-w-7xl mx-auto mt-12">
       {longFormCards.map((item, i) => (
@@ -89,7 +96,7 @@ export function BentoGridCustom() {
             key={i}
             title={item.title}
             description={item.description}
-            header={() => renderImage(item?.thumbnail, item?.folderUrl)}
+            header={() => renderImage(item?.thumbnail, item?.link)}
             className={
               (i === 3 || i === 6 ? "md:col-span-2" : "") +
               (hovered !== null && hovered !== i ? " blur-sm scale-[0.98]" : "")
@@ -98,7 +105,7 @@ export function BentoGridCustom() {
             onMouseLeave={() => setHovered(null)}
             onClick={() => setHovered(null)}
             hovered={hovered == i}
-            folderUrl={item?.folderUrl}
+            folderUrl={item?.link}
           />
 
           {/* {hovered == i && (
