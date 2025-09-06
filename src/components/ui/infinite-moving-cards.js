@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingCardsUI = ({
@@ -82,7 +83,7 @@ export const InfiniteMovingCardsUI = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-xs md:max-w-4xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-xs md:max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
@@ -104,15 +105,15 @@ export const InfiniteMovingCardsUI = ({
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900))",
             }}
           >
-            <blockquote>
+            <blockquote className="flex flex-col justify-between align-between">
               <div
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
-              <span className="relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
+              <span className="line-clamp-4 relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
                 {item.quote}
               </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
+              <div className="relative z-20 mt-6 flex flex-row. justify-between align-center items-center">
                 <span className="flex flex-col gap-1">
                   <span className="text-sm leading-[1.6] text-gray-400 font-normal">
                     {item.name}
@@ -121,6 +122,12 @@ export const InfiniteMovingCardsUI = ({
                     {item.title}
                   </span>
                 </span>
+                <Image
+                  height="12"
+                  className="rounded-3xl"
+                  width="120"
+                  src={"/images/5-star.png"}
+                />
               </div>
             </blockquote>
           </li>

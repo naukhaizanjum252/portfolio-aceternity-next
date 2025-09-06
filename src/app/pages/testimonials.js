@@ -7,8 +7,8 @@ const testimonials = [
       <p>
         Naukhaiz does an outstanding job when it comes to editing, took videos
         to another level and whats most important for me, He{" "}
-        <Highlight>works very fast</Highlight>
-        Been a pleasure to work with Him! 🎯
+        <Highlight>works very fast</Highlight>. Been a pleasure to work with
+        Him! 🎯
       </p>
     ),
     name: "Borys",
@@ -19,31 +19,83 @@ const testimonials = [
       <>
         Naukhaiz has been a great editor for my agency who I’ve worked with for
         around 6 months. He is always happy to make edits and tweaks until the
-        video is perfect and I’d definitely <Highlight> recommend </Highlight>{" "}
-        him to anyone needing video editing.
+        video is perfect and I’d definitely <Highlight>recommend</Highlight> him
+        to anyone needing video editing.
       </>
     ),
     name: "Aaron McCullough",
     title: "Founder - McCullough Marketing",
   },
-  // {
-  //   quote: "All that we see or seem is but a dream within a dream.",
-  //   name: "Edgar Allan Poe",
-  //   title: "A Dream Within a Dream",
-  // },
-  // {
-  //   quote:
-  //     "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-  //   name: "Jane Austen",
-  //   title: "Pride and Prejudice",
-  // },
-  // {
-  //   quote:
-  //     "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-  //   name: "Herman Melville",
-  //   title: "Moby-Dick",
-  // },
+  {
+    quote: (
+      <p>
+        From something that was supposed to be a test video, I continued working
+        with Naukhaiz for a long time on multiple projects. <br />
+        <br />
+        Most important things are:{" "}
+        <Highlight>
+          Reliability, fast turnaround time, English proficiency
+        </Highlight>{" "}
+        and that He can listen to instructions and feedback very good, and from
+        my feedback and instructions apply his{" "}
+        <Highlight>creativity and editing knowledge</Highlight> to create good
+        videos, daily. <br />
+        <br />I give my <Highlight>recommendations</Highlight> for Naukhaiz.
+      </p>
+    ),
+    name: "Luka Pecirep",
+    title: "Upwork",
+  },
+  {
+    quote: (
+      <p>
+        Naukhaiz has been amazing to work with. He is very{" "}
+        <Highlight>prompt at providing revisions</Highlight> and{" "}
+        <Highlight>understood the brief almost immediately</Highlight>.
+      </p>
+    ),
+    name: "Christian Fitzgerald",
+    title: "Evolve Technik / Upwork",
+  },
+  {
+    quote: (
+      <p>
+        Great person to work with. Completely{" "}
+        <Highlight>understands the needs</Highlight> of the project and works
+        toward fulfilling it. Has some{" "}
+        <Highlight>cool animations and typography</Highlight> that he uses to
+        give a great look to the videos.
+      </p>
+    ),
+    name: "Jaskeerat Singh",
+    title: "Upwork",
+  },
+  {
+    quote: (
+      <p>
+        He does <Highlight>excellent work</Highlight>. He did a{" "}
+        <Highlight>good job</Highlight> according to the contract and went the{" "}
+        <Highlight>extra mile</Highlight> to ensure everything was completed.
+      </p>
+    ),
+    name: "Kyle Hanson",
+    title: "Upwork",
+  },
+  {
+    quote: (
+      <p>
+        After consistent communication and rounds of revision, Naukhaiz has
+        really <Highlight>found his rhythm</Highlight>. Our workflow is much{" "}
+        <Highlight>smoother</Highlight> now, and we're very happy with how our{" "}
+        <Highlight>collaboration</Highlight> is progressing. Thank you for your{" "}
+        <Highlight>dedication and hard work</Highlight>!
+      </p>
+    ),
+    name: "Eric Lee",
+    title: "Upwork",
+  },
 ];
+
 const animatedTestimonials = [
   {
     quote:
@@ -133,7 +185,7 @@ const Testimonials = () => {
               Testimonials
             </h1>
 
-            <p className="md:max-w-xl max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 mb-4 md:ml-4 ">
+            <p className=" text-base md:text-xl mt-8 dark:text-neutral-200 mb-4 md:ml-4 ">
               Discover the transformative impact of working with me through the
               words of those who have experienced my unwavering passion,
               dedication, and commitment to excellence firsthand. Their stories
@@ -143,13 +195,16 @@ const Testimonials = () => {
           </div>
           {/* <div className="flex-1 flex-col justify-end"> */}
           {/* <CardStack cards={CARDS} /> */}
-          {/* <InfiniteMovingCards testimonials={testimonials} /> */}
+
           {/* </div> */}
-          <div className=" md:ml-32">
+          {/* <div className=" md:ml-32">
             <AnimatedTestimonials testimonials={animatedTestimonials} />
-          </div>
+          </div> */}
         </div>
       </div>
+      <InfiniteMovingCards testimonials={testimonials} />
+      <InfiniteMovingCards dir={"right"} testimonials={testimonials} />
+      <InfiniteMovingCards testimonials={testimonials} />
     </>
   );
 };
