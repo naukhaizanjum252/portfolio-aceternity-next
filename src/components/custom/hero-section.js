@@ -29,14 +29,14 @@ const HeroSection = () => {
         <Image
           height="250"
           width="250"
-          src="/images/3.png"
+          src="/images/5.png"
           alt="Profile Picture"
           className="rounded-full"
         />
         <h1 className="mt-4 md:mt-6 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
           Naukhaiz Anjum
         </h1>
-        <p className="mt-2 md:mt-4 text-base md:text-lg text-blue-500">
+        <p className="mt-2 md:mt-4 text-base md:text-lg text-[#02e8a3]">
           Video Editor
         </p>
       </div>

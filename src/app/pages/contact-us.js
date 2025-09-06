@@ -79,7 +79,7 @@ const ContactUs = () => {
                   width="150"
                   src={platform?.thumbnail}
                 />
-                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
+                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-[#02e8a3]" /> */}
               </div>
             </ThreeDPin>
           </>

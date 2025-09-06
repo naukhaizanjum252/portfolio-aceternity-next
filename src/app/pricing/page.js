@@ -16,7 +16,7 @@ const PricingCard = ({ title, description, price, features, icon }) => {
         bordered={false}
       >
         <div className="flex flex-col items-center text-white mb-6">
-          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 mb-4">
+          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#02e8a3] mb-4">
             {icon}
           </div>
           <h3 className="text-2xl font-semibold">{title}</h3>
@@ -37,7 +37,7 @@ const PricingCard = ({ title, description, price, features, icon }) => {
         </ul>
         <Button
           type="primary"
-          className="w-full bg-blue-500 hover:bg-blue-600 border-none text-white"
+          className="w-full bg-[#02e8a3] hover:bg-blue-600 border-none text-white"
           href={`https://wa.me/+923314411708?text=Hi%20Naukhaiz,%20I%20would%20like%20to%20buy%20your%20${title}%20Package.`}
           target="_blank"
         >
@@ -94,7 +94,7 @@ const PricingSection = () => {
   return (
     <section className="py-20 px-4 md:py-20 bg-gradient-to-r from-black to-gray-900 text-white">
       <div className="max-w-6xl mx-auto text-center">
-        <CheckCircleOutlined className="text-6xl text-blue-500 mt-12 mb-4" />
+        <CheckCircleOutlined className="text-6xl text-[#02e8a3] mt-12 mb-4" />
         <h2 className="text-4xl font-bold mb-4">Choose Your Plan</h2>
         <p className="text-gray-300 max-w-2xl mx-auto mb-12">
           Select the plan that suits your needs. Whether you're just starting

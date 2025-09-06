@@ -18,7 +18,8 @@ export function Button({
   borderClassName,
   duration,
   className,
-  borderColor = "var(--blue-500)",
+  // borderColor = "var(--[#02e8a3])",
+  borderColor = "[#02e8a3]",
   ...otherProps
 }) {
   return (
@@ -44,7 +45,7 @@ export function Button({
             )}
 
             // className={cn(
-            //   "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--blue-500)_40%,transparent_60%)]",
+            //   "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--[#02e8a3])_40%,transparent_60%)]",
             //   borderClassName
             // )}
           />
