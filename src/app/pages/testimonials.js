@@ -204,7 +204,7 @@ const Testimonials = () => {
       </div>
       <InfiniteMovingCards testimonials={testimonials} />
       <InfiniteMovingCards dir={"right"} testimonials={testimonials} />
-      <InfiniteMovingCards testimonials={testimonials} />
+      {/* <InfiniteMovingCards testimonials={testimonials} /> */}
     </>
   );
 };

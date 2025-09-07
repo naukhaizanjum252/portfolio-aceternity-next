@@ -14,6 +14,14 @@ export const InfiniteMovingCardsUI = ({
   const containerRef = React.useRef(null);
   const scrollerRef = React.useRef(null);
   const [start, setStart] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   useEffect(() => {
     addAnimation();
@@ -121,13 +129,23 @@ export const InfiniteMovingCardsUI = ({
                   <span className="text-sm leading-[1.6] text-gray-400 font-normal">
                     {item.title}
                   </span>
+                  {isMobile && (
+                    <Image
+                      height="12"
+                      className="rounded-3xl"
+                      width="120"
+                      src={"/images/5-star.png"}
+                    />
+                  )}
                 </span>
-                <Image
-                  height="12"
-                  className="rounded-3xl"
-                  width="120"
-                  src={"/images/5-star.png"}
-                />
+                {!isMobile && (
+                  <Image
+                    height="12"
+                    className="rounded-3xl"
+                    width="120"
+                    src={"/images/5-star.png"}
+                  />
+                )}
               </div>
             </blockquote>
           </li>
