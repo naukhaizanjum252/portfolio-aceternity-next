@@ -29,7 +29,7 @@ const NicheDetail = ({ params }) => {
       description:
         "Expertly edited historical videos that transport viewers back in time. Each video is crafted to highlight significant events, using powerful visuals and narrative pacing to captivate and educate.",
       videos:
-        "https://drive.google.com/file/d/1BuAiraPd3pmhZrBEDzym-UgXcJOwi_4B/view?usp=drive_link, https://drive.google.com/file/d/1FfmhbigNUl7aQA8GiSraCTBsnVA6Ka6d/view?usp=drive_link",
+        "https://drive.google.com/file/d/1IbNSZn9OBEt1FskyhGwGmlJe77qbD8j8/view?usp=drive_link, https://drive.google.com/file/d/1-gMz_ccf3xAM0s3s1QvtwkMNF2VqV2tn/view?usp=drive_link, https://drive.google.com/file/d/1okjUo_m1fRDDV-GSdTsDlunGjGO1LF5J/view?usp=drive_link, https://drive.google.com/file/d/1Q6l3N8RDRvCeJ7vrwmussY6Q5cK8rKYz/view?usp=drive_link, https://drive.google.com/file/d/15CZg0FUoKwRvrwYElMxlOyq4b5snglNj/view?usp=drive_link, https://drive.google.com/file/d/11_7p8jHKPQMQeEdstRv1b0u76hngEepz/view?usp=drive_link, https://drive.google.com/file/d/1Zdwf8zzyMFOP6kkiCEkWpk76AN4WXLbZ/view?usp=drive_link, https://drive.google.com/file/d/1y_wlqxuVnIe8vTbuFptBQOc1cumgCTMu/view?usp=drive_link, https://drive.google.com/file/d/1FfmhbigNUl7aQA8GiSraCTBsnVA6Ka6d/view?usp=drive_link",
     },
     crime: {
       title: "Inside the Mind: True Crime Uncovered",
