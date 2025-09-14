@@ -3,6 +3,8 @@ import ContactUs from "./pages/contact-us";
 import Testimonials from "./pages/testimonials";
 import ShortFormContent from "./pages/short-form-content";
 import LongFormContent from "./pages/long-form-content";
+import { VideoCard } from "@/components/custom/card";
+import TopPerformingVideos from "./pages/top-performing-videos";
 
 export default function Home() {
   return (
@@ -16,8 +18,11 @@ export default function Home() {
           ))}
         </div> */}
         {/* <ThreeDCard /> */}
-        {/* use multiple of these pins render contact us and add upwork, whatsapp etc */}
         {/* <StickyScrollReveal /> */}
+
+        <section id="top-performing-videos">
+          <TopPerformingVideos />
+        </section>
         <section id="short-form-content">
           <ShortFormContent />
         </section>

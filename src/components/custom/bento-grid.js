@@ -85,12 +85,13 @@ const longFormCards = [
   },
 ];
 
-export function BentoGridCustom() {
+export function BentoGridCustom({ list }) {
   const [hovered, setHovered] = useState(null);
 
+  const data = list || longFormCards;
   return (
     <BentoGrid className="max-w-7xl mx-auto mt-12">
-      {longFormCards.map((item, i) => (
+      {data.map((item, i) => (
         <>
           <BentoGridItem
             key={i}
