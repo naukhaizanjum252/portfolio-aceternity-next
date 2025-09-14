@@ -1,11 +1,21 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { IconEye } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 
 export function VideoCard({ item }) {
   const { link, views, tags = [] } = item || {};
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
   return (
-    <Card className="group relative hover:shadow-2xl hover:border-[#02e8a3]/50 transition-all duration-500">
+    <Card className="p-4 md:p-6 group relative hover:shadow-2xl hover:border-[#02e8a3]/50 transition-all duration-500">
       {/* Video iframe */}
       <div className="relative w-full aspect-video overflow-hidden rounded-xl">
         <iframe
@@ -14,7 +24,7 @@ export function VideoCard({ item }) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-          width={"400"}
+          width={isMobile ? "300" : "400"}
           height={"250"}
         />
       </div>
@@ -25,7 +35,7 @@ export function VideoCard({ item }) {
           {tags.map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 text-[11px] font-semibold tracking-wide uppercase rounded-lg
+              className="px-3 py-1 text-[9px] md:text-[11px] font-semibold tracking-wide uppercase rounded-lg
              bg-gradient-to-r from-white/20 to-white/5 dark:from-white/10 dark:to-white/0
              backdrop-blur-sm
              text-neutral-800 dark:text-neutral-200
