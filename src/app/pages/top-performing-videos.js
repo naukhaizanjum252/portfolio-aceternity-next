@@ -5,7 +5,7 @@ const TopPerformingVideos = () => {
   const data = [
     {
       link: "https://www.youtube.com/embed/TFA7olTnqas",
-      views: "5,200,000",
+      views: "5.2M+",
       tags: [
         "Long-form",
         "Celebrity",
@@ -16,17 +16,17 @@ const TopPerformingVideos = () => {
     },
     {
       link: "https://www.youtube.com/embed/iH8vU5ezfRY",
-      views: "1,000,000",
+      views: "1M+",
       tags: ["Finance", "Talking Head", "Long Form Content", "Business"],
     },
     {
       link: "https://www.youtube.com/embed/L8PUet-YUSE",
-      views: "785,000",
+      views: "785k",
       tags: ["Talking Head", "YouTube Long-form", "Politics", "Informational"],
     },
     {
       link: "https://www.youtube.com/embed/tQln4Z2EwA8",
-      views: "333,000",
+      views: "333k",
       tags: [
         "Talking Head",
         "News Style",
@@ -36,12 +36,12 @@ const TopPerformingVideos = () => {
     },
     {
       link: "https://www.youtube.com/embed/HPlXGaIozJI",
-      views: "151,000",
+      views: "151k",
       tags: ["Short-form", "High-Energy", "Captions", "YouTube Shorts"],
     },
     {
       link: "https://www.youtube.com/embed/MlHfmoLFcKY",
-      views: "44,000",
+      views: "44k",
       tags: [
         "Podcast Style",
         "Talking Head",
@@ -51,7 +51,7 @@ const TopPerformingVideos = () => {
     },
     {
       link: "https://www.youtube.com/embed/KrPqnzT-W8A",
-      views: "37,000",
+      views: "37k",
       tags: [
         "Storytelling",
         "B-Roll",

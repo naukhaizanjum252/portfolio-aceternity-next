@@ -36,9 +36,20 @@ const HeroSection = () => {
         <h1 className="mt-4 md:mt-6 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
           Naukhaiz Anjum
         </h1>
-        <p className="mt-2 md:mt-4 text-base md:text-lg text-[#02e8a3]">
-          Video Editor
-        </p>
+        <div className="flex justify-center align-center items-center gap-4 mt-2 md:mt-4">
+          <p className=" text-base md:text-lg text-[#02e8a3]">Video Editor</p>
+          <div className=" flex gap-2 justify-center align-center items-center">
+            <Image
+              height="25"
+              width="30"
+              src="/images/top-rated-plus-badge.png"
+            />
+            <div className="w-4 h-4 bg-white/90 absolute left-[185px] md:left-[158px] -z-10"></div>
+            <p className="text-md font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 ">
+              Top Rated Plus
+            </p>
+          </div>
+        </div>
       </div>
     );
   };
