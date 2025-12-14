@@ -250,7 +250,6 @@ export const Card = ({ card, index, layout = false }) => {
           link={card?.link}
           alt={card?.title}
           fill
-          showPlayIcon={true}
           className="object-cover absolute z-10 inset-0"
         />
       </motion.button>

@@ -1,4 +1,10 @@
 import { CardsCarousel } from "@/components/custom/apple-cards-carousel";
+import {
+  AnimatedSection,
+  AnimatedTitle,
+  AnimatedParagraph,
+  AnimatedNicheItem,
+} from "@/components/custom/animated-section";
 
 // Your main portfolio Google Drive folder ID
 const PARENT_FOLDER_ID = "1G69LbpSQUtl6OlXPNCMxpiYX6qR5D8BA";
@@ -210,44 +216,63 @@ const NicheDetail = async ({ params }) => {
   }
 
   return (
-    <section className="py-20 px-4 md:py-20 bg-gradient-to-r from-black to-gray-900 text-white">
-      <div>
+    <section className="py-20 px-4 md:py-20 bg-gradient-to-r from-black to-gray-900 text-white min-h-screen">
+      <div className="max-w-7xl mx-auto">
         {allNicheData?.length > 0 &&
           allNicheData.map((item, index) => (
-            <div key={item.key || index} className="mb-16">
-              <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+            <AnimatedNicheItem
+              key={item.key || index}
+              item={item}
+              index={index}
+            >
+              <AnimatedTitle
+                delay={index * 0.15}
+                className="text-2xl md:text-7xl font-bold dark:text-white"
+              >
                 {item?.title}
-              </h1>
-              <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+              </AnimatedTitle>
+              <AnimatedParagraph
+                delay={index * 0.15 + 0.1}
+                className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200"
+              >
                 {item?.description}
-              </p>
+              </AnimatedParagraph>
               {item?.videos?.length > 0 && (
-                <CardsCarousel renderDirectly data={item.videos} />
+                <AnimatedSection delay={index * 0.15 + 0.2}>
+                  <CardsCarousel renderDirectly data={item.videos} />
+                </AnimatedSection>
               )}
-            </div>
+            </AnimatedNicheItem>
           ))}
+
         {mappedData && (
-          <>
-            <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+          <AnimatedSection>
+            <AnimatedTitle className="text-2xl md:text-7xl font-bold dark:text-white">
               {mappedData?.title}
-            </h1>
-            <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+            </AnimatedTitle>
+            <AnimatedParagraph
+              delay={0.1}
+              className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200"
+            >
               {mappedData?.description}
-            </p>
+            </AnimatedParagraph>
             {mappedData?.videos?.length > 0 && (
-              <CardsCarousel renderDirectly data={mappedData.videos} />
+              <AnimatedSection delay={0.2}>
+                <CardsCarousel renderDirectly data={mappedData.videos} />
+              </AnimatedSection>
             )}
-          </>
+          </AnimatedSection>
         )}
+
         {!allNicheData?.length && !mappedData && (
-          <div className="text-center py-20">
-            <h1 className="text-2xl md:text-4xl font-bold text-gray-400">
+          <AnimatedSection className="text-center py-20">
+            <AnimatedTitle className="text-2xl md:text-4xl font-bold text-gray-400">
               Niche not found
-            </h1>
-            <p className="mt-4 text-gray-500">
+            </AnimatedTitle>
+            <AnimatedParagraph delay={0.1} className="mt-4 text-gray-500">
               The requested category does not exist.
-            </p>
-          </div>
+            </AnimatedParagraph>
+          </AnimatedSection>
         )}
       </div>
     </section>

@@ -5,6 +5,8 @@ import Form from "@/components/custom/form";
 import { Globe } from "@/components/custom/globe";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/custom/animate-on-scroll";
 
 const ContactUs = () => {
   useEffect(() => {
@@ -57,71 +59,85 @@ const ContactUs = () => {
   const renderPins = () => {
     return (
       <>
-        {platforms.map((platform) => (
-          <>
+        {platforms.map((platform, index) => (
+          <motion.div
+            key={platform.urlTitle}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.5, 
+              delay: index * 0.1,
+              ease: [0.25, 0.1, 0.25, 1]
+            }}
+          >
             <ThreeDPin
-              key={platform.urlTitle}
               urlTitle={platform.cardTitle}
               href={platform?.href}
             >
-              <div className="flex basis-full  flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[2rem] md:w-[3rem] h-[2rem] md:h-[3rem]  ">
-                {/* <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">
-                  {platform?.cardTitle}
-                </h3>
-                <div className="text-base !m-0 !p-0 font-normal">
-                  <span className="text-slate-500">
-                    {platform?.description}
-                  </span>
-                </div> */}
+              <motion.div 
+                className="flex basis-full flex-col tracking-tight text-slate-100/50 sm:basis-1/2 w-[2rem] md:w-[3rem] h-[2rem] md:h-[3rem]"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <Image
                   height="150"
                   className="rounded-3xl"
                   width="150"
                   src={platform?.thumbnail}
                 />
-                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-[#02e8a3]" /> */}
-              </div>
+              </motion.div>
             </ThreeDPin>
-          </>
+          </motion.div>
         ))}
       </>
     );
   };
+
   const formData = {
     title: "Welcome to Aceternity",
     description:
       " Login to aceternity if you can because we don't have a login flow yet",
     btnText: "Submit",
   };
+
   return (
     <>
       <div className="flex md:flex-row flex-col">
-        <div className="flex flex-col md:mt-20 ">
-          <h1 className=" ml-12 md:ml-28 md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-            Let's Connect
-          </h1>
+        <div className="flex flex-col md:mt-20">
+          <AnimateOnScroll animation="fadeLeft" delay={0}>
+            <h1 className="ml-12 md:ml-28 md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+              Let's Connect
+            </h1>
+          </AnimateOnScroll>
+          
           <div className="flex flex-col">
-            <p className="max-w-2xl ml-12 md:ml-28 text-base md:text-xl mt-8 dark:text-neutral-200  ">
-              Have a video project in mind? Let’s bring your vision to life.
-              Whether it’s social media content, promotional videos, or
-              something unique, I’m here to help. Reach out through the
-              platforms below or contact me directly. Let’s create something
-              great together!
-            </p>
+            <AnimateOnScroll animation="fadeUp" delay={0.2}>
+              <p className="max-w-2xl ml-12 md:ml-28 text-base md:text-xl mt-8 dark:text-neutral-200">
+                Have a video project in mind? Let's bring your vision to life.
+                Whether it's social media content, promotional videos, or
+                something unique, I'm here to help. Reach out through the
+                platforms below or contact me directly. Let's create something
+                great together!
+              </p>
+            </AnimateOnScroll>
 
-            {/* <FloatingDock
-            // platforms={platforms}
-            /> */}
             <div className="ml-8 md:ml-24 flex flex-row mb-40">
               {renderPins()}
             </div>
           </div>
-          {/* <Form {...formData} /> */}
         </div>
+        
         {!isMobile && (
-          <div className="ml-auto mr-20  w-[40rem]">
+          <motion.div 
+            className="ml-auto mr-20 w-[40rem]"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <Globe />
-          </div>
+          </motion.div>
         )}
       </div>
     </>

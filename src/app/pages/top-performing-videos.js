@@ -1,5 +1,8 @@
+"use client";
 import { VideoCard } from "@/components/custom/card";
 import { Carousel } from "@/components/ui/apple-cards-carousel";
+import { motion } from "framer-motion";
+import { AnimateOnScroll } from "@/components/custom/animate-on-scroll";
 
 const TopPerformingVideos = () => {
   const data = [
@@ -62,23 +65,46 @@ const TopPerformingVideos = () => {
   ];
 
   const cards = data?.map((card, index) => (
-    <div>
-      <VideoCard key={card.link} item={card} />
-    </div>
+    <motion.div
+      key={card.link}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: [0.25, 0.1, 0.25, 1]
+      }}
+    >
+      <VideoCard item={card} />
+    </motion.div>
   ));
 
   const renderHeader = () => {
     return (
       <div className="max-w-7xl relative mx-auto pt-20 md:pt-40 px-4 w-full left-0 top-0">
-        <h2 className="text-2xl md:text-6xl font-bold dark:text-white">
+        <motion.h2 
+          className="text-2xl md:text-6xl font-bold dark:text-white"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           My Top Performing Videos
-        </h2>
-        <p className="max-w-5xl text-base md:text-xl mt-8 dark:text-neutral-200">
+        </motion.h2>
+        
+        <motion.p 
+          className="max-w-5xl text-base md:text-xl mt-8 dark:text-neutral-200"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           Here are some of my most impactful edits that have gained high
           engagement and recognition. Each video highlights my expertise in
           crafting compelling stories, optimized for different platforms and
           audiences.
-        </p>
+        </motion.p>
       </div>
     );
   };
@@ -86,7 +112,9 @@ const TopPerformingVideos = () => {
   return (
     <div>
       {renderHeader()}
-      <Carousel items={cards} />
+      <AnimateOnScroll animation="fadeIn" delay={0.3}>
+        <Carousel items={cards} />
+      </AnimateOnScroll>
     </div>
   );
 };

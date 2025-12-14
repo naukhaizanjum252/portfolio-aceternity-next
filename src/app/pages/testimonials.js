@@ -1,6 +1,9 @@
+"use client";
 import { AnimatedTestimonials } from "@/components/custom/animated-testimonials";
 import { CardStack, Highlight } from "@/components/custom/card-stack";
 import InfiniteMovingCards from "@/components/custom/infinite-moving-cards";
+import { AnimateOnScroll, StaggerContainer, StaggerItem } from "@/components/custom/animate-on-scroll";
+
 const testimonials = [
   {
     quote: (
@@ -17,9 +20,9 @@ const testimonials = [
   {
     quote: (
       <>
-        Naukhaiz has been a great editor for my agency who I’ve worked with for
+        Naukhaiz has been a great editor for my agency who I've worked with for
         around 6 months. He is always happy to make edits and tweaks until the
-        video is perfect and I’d definitely <Highlight>recommend</Highlight> him
+        video is perfect and I'd definitely <Highlight>recommend</Highlight> him
         to anyone needing video editing.
       </>
     ),
@@ -107,29 +110,12 @@ const animatedTestimonials = [
   },
   {
     quote:
-      "Naukhaiz has been a great editor for my agency who I’ve worked with for around 6 months. He is always happy to make edits and tweaks until the video is perfect and I’d definitely  recommend  him to anyone needing video editing.",
+      "Naukhaiz has been a great editor for my agency who I've worked with for around 6 months. He is always happy to make edits and tweaks until the video is perfect and I'd definitely  recommend  him to anyone needing video editing.",
 
     name: "Aaron McCullough",
     designation: "Founder - McCullough Marketing",
     src: "https://drive.google.com/file/d/1o_9FVrYFpvqegt_NkZfmNjWAxJ6y96-B/view?usp=drive_link",
   },
-  // {
-  //   quote: "All that we see or seem is but a dream within a dream.",
-  //   name: "Edgar Allan Poe",
-  //   title: "A Dream Within a Dream",
-  // },
-  // {
-  //   quote:
-  //     "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-  //   name: "Jane Austen",
-  //   title: "Pride and Prejudice",
-  // },
-  // {
-  //   quote:
-  //     "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-  //   name: "Herman Melville",
-  //   title: "Moby-Dick",
-  // },
 ];
 
 const CARDS = [
@@ -178,33 +164,35 @@ const CARDS = [
 const Testimonials = () => {
   return (
     <>
-      <div className=" md:ml-8 flex flex-col  p-10 md:p-20">
-        <div className="flex flex-col md:flex-row justify-between items-start mt-8">
-          <div className="flex-2 ">
-            <h1 className="md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 md:mb-12">
-              Testimonials
-            </h1>
+      <div className="md:ml-8 flex flex-col p-10 md:p-20">
+        <StaggerContainer staggerDelay={0.15} className="flex flex-col md:flex-row justify-between items-start mt-8">
+          <div className="flex-2">
+            <StaggerItem animation="fadeUp">
+              <h1 className="md:mt-0 text-3xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 md:mb-12">
+                Testimonials
+              </h1>
+            </StaggerItem>
 
-            <p className=" text-base md:text-xl mt-8 dark:text-neutral-200 mb-4 md:ml-4 ">
-              Discover the transformative impact of working with me through the
-              words of those who have experienced my unwavering passion,
-              dedication, and commitment to excellence firsthand. Their stories
-              and testimonials highlight how I bring creativity, expertise, and
-              reliability to every of their project.
-            </p>
+            <StaggerItem animation="fadeUp">
+              <p className="text-base md:text-xl mt-8 dark:text-neutral-200 mb-4 md:ml-4">
+                Discover the transformative impact of working with me through the
+                words of those who have experienced my unwavering passion,
+                dedication, and commitment to excellence firsthand. Their stories
+                and testimonials highlight how I bring creativity, expertise, and
+                reliability to every of their project.
+              </p>
+            </StaggerItem>
           </div>
-          {/* <div className="flex-1 flex-col justify-end"> */}
-          {/* <CardStack cards={CARDS} /> */}
-
-          {/* </div> */}
-          {/* <div className=" md:ml-32">
-            <AnimatedTestimonials testimonials={animatedTestimonials} />
-          </div> */}
-        </div>
+        </StaggerContainer>
       </div>
-      <InfiniteMovingCards testimonials={testimonials} />
-      <InfiniteMovingCards dir={"right"} testimonials={testimonials} />
-      {/* <InfiniteMovingCards testimonials={testimonials} /> */}
+      
+      <AnimateOnScroll animation="fadeIn" delay={0.2}>
+        <InfiniteMovingCards testimonials={testimonials} />
+      </AnimateOnScroll>
+      
+      <AnimateOnScroll animation="fadeIn" delay={0.3}>
+        <InfiniteMovingCards dir={"right"} testimonials={testimonials} />
+      </AnimateOnScroll>
     </>
   );
 };
