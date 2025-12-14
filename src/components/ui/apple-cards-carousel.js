@@ -250,6 +250,7 @@ export const Card = ({ card, index, layout = false }) => {
           link={card?.link}
           alt={card?.title}
           fill
+          showPlayIcon={true}
           className="object-cover absolute z-10 inset-0"
         />
       </motion.button>
@@ -264,30 +265,42 @@ export const BlurImage = ({
   className,
   alt,
   link,
+  showPlayIcon = false,
   ...rest
 }) => {
   const [isLoading, setLoading] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  
   return (
-    <>
-      {/* <Link href={link} target="__blank"> */}
-        <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
-        <Image
+    <div 
+      className="relative w-full h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {showPlayIcon && (
+        <IconBrandYoutubeFilled 
           className={cn(
-            "transition duration-300",
-            isLoading ? "blur-sm" : "blur-0",
-            className
-          )}
-          onLoad={() => setLoading(false)}
-          src={src}
-          width={width}
-          height={height}
-          loading="lazy"
-          decoding="async"
-          blurDataURL={typeof src === "string" ? src : undefined}
-          alt={alt ? alt : "Background of a beautiful view"}
-          {...rest}
+            "h-20 w-20 absolute z-20 inset-0 text-red-500 m-auto transition-opacity duration-300",
+            isHovered ? "opacity-100" : "opacity-0"
+          )} 
         />
-      {/* </Link> */}
-    </>
+      )}
+      <Image
+        className={cn(
+          "transition duration-300",
+          isLoading ? "blur-sm" : "blur-0",
+          className
+        )}
+        onLoad={() => setLoading(false)}
+        src={src}
+        width={width}
+        height={height}
+        loading="lazy"
+        decoding="async"
+        blurDataURL={typeof src === "string" ? src : undefined}
+        alt={alt ? alt : "Background of a beautiful view"}
+        {...rest}
+      />
+    </div>
   );
 };
