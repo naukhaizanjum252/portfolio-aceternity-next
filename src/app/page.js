@@ -5,8 +5,19 @@ import ShortFormContent from "./pages/short-form-content";
 import LongFormContent from "./pages/long-form-content";
 import { VideoCard } from "@/components/custom/card";
 import TopPerformingVideos from "./pages/top-performing-videos";
+import { NEW_LAYOUT } from "@/config";
 
 export default function Home() {
+  if (NEW_LAYOUT) {
+    return (
+      <iframe
+        src="/new-portfolio/"
+        className="fixed inset-0 w-full h-full border-0 block"
+        title="Naukhaiz Anjum - Video Editor Portfolio"
+      />
+    );
+  }
+
   return (
     <>
       <main className=" min-h-screen bg-black antialiased bg-grid-white/[0.02] dark">
