@@ -14,7 +14,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/18l6OQ28oR0VYwA6JJVbLw37Lww3AYK53?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18KlARBcdQCjUkXAKWOduFXHHjBQrwcRb",
+      "https://lh3.googleusercontent.com/d/18KlARBcdQCjUkXAKWOduFXHHjBQrwcRb",
     link: "/detail/tech",
   },
   {
@@ -25,7 +25,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/1lXFU-UUfTzx4fPXCA76858ghH8ywJgcw?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18LSgp1NV1c6513VRuPxJlwAkN9_KkzgG",
+      "https://lh3.googleusercontent.com/d/18LSgp1NV1c6513VRuPxJlwAkN9_KkzgG",
     link: "/detail/animation",
   },
   {
@@ -36,7 +36,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/1y-R4Si3Co12gNPggEHi42a2y9iZ9d1Ru?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18M7rHSZzFG0A1ImL-tCgesDwyiURPHJa",
+      "https://lh3.googleusercontent.com/d/18M7rHSZzFG0A1ImL-tCgesDwyiURPHJa",
     link: "/detail/youtube",
   },
   {
@@ -47,7 +47,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/1OY2EG9o6n0U367_tFqRhQyp718idw9kM?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18No4E4Iit08UO5aHJ9P3KdLNvnAVQohk",
+      "https://lh3.googleusercontent.com/d/18No4E4Iit08UO5aHJ9P3KdLNvnAVQohk",
     link: "/detail/history",
   },
   {
@@ -58,7 +58,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/1WXPrCsQx9HxyWmmQE7gPb-mZXWYqts07?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18RImXxCn_7XZ1psz3CAezWTfc-cg3EBn",
+      "https://lh3.googleusercontent.com/d/18RImXxCn_7XZ1psz3CAezWTfc-cg3EBn",
     link: "/detail/crime",
   },
   {
@@ -69,7 +69,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/1wQxJQ9WEO7JYkoJpH6-IJCWPauLAQTr0?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18VlZZRwqVQApeurilMf7zpaT7us9kyhS",
+      "https://lh3.googleusercontent.com/d/18VlZZRwqVQApeurilMf7zpaT7us9kyhS",
     link: "/detail/ecom",
   },
   {
@@ -80,7 +80,7 @@ const longFormCards = [
     folderUrl:
       "https://drive.google.com/drive/folders/1bUq4FdPqG0of7w7xCgKUz2fbOuE80Wmj?usp=drive_link",
     thumbnail:
-      "https://drive.google.com/uc?id=18VvVIIvEwVNxZGfhTv0W26x7uEIVsfK_",
+      "https://lh3.googleusercontent.com/d/18VvVIIvEwVNxZGfhTv0W26x7uEIVsfK_",
     link: "/detail/documentary",
   },
 ];
@@ -125,8 +125,15 @@ export function BentoGridCustom({ list }) {
 const renderImage = (url, folderUrl) => {
   return (
     <Link target="_blank" href={folderUrl}>
-      <div className="flex flex-1 w-full h-full max-h-[20rem] min-h-[18rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-        <Image height="50" className="rounded-xl" width="1050" src={url} />;
+      <div className="flex flex-1 w-full h-full max-h-[20rem] min-h-[18rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100 overflow-hidden">
+        <Image
+          height={400}
+          width={1050}
+          className="rounded-xl object-cover w-full h-full"
+          src={url}
+          unoptimized
+          alt="Video thumbnail"
+        />
       </div>
     </Link>
   );

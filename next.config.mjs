@@ -9,6 +9,7 @@ const nextConfig = {
       "cdn1.iconfinder.com",
       "assets.aceternity.com",
       "drive.google.com",
+      "lh3.googleusercontent.com",
     ],
   },
 };

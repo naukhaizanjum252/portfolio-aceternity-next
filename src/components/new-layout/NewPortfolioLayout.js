@@ -4,21 +4,21 @@ import { useState, useEffect, useCallback } from "react";
 import "@/styles/new-portfolio-layout.css";
 
 const SHORT_FORM_VIDEOS = [
-  { src: "https://drive.google.com/file/d/15eODuMf9Xgm12J4S3poXrhB1daNyCena/preview", thumb: "https://drive.google.com/thumbnail?id=1rUW-BbMRrue8wTQi1xKOerYWLD8FtfPb&sz=w400" },
-  { src: "https://drive.google.com/file/d/1_S4s9eOYB_9Y3uJHxHn0c4-jlidSgJOg/preview", thumb: "https://drive.google.com/thumbnail?id=18K3t-MYQbpxoP4MBzeqXhyAVPeSat5Si&sz=w400" },
-  { src: "https://drive.google.com/file/d/11yOSpU2lsBeeoI-U1-jx5jNOzMGLr7eF/preview", thumb: "https://drive.google.com/thumbnail?id=1maYQuNH2g6UZde6foYES9CRzT0rIaGEE&sz=w400" },
-  { src: "https://drive.google.com/file/d/1PLnpYyCBxbfJsdxW6vPFv61Tw72MZmx8/preview", thumb: "https://drive.google.com/thumbnail?id=12P1HMW1d9hWKHcbt3SApekQJyK-l2VzT&sz=w400" },
-  { src: "https://drive.google.com/file/d/1dvuLw3Yr4hKBwfTUYM2eHKMMSGj-AMfe/preview", thumb: "https://drive.google.com/thumbnail?id=1ysn669N6neEpq8HrzjguslrEVmMjRVjH&sz=w400" },
-  { src: "https://drive.google.com/file/d/1xawA3DCigqyVS8Amhw3euE_6lMTkJmOg/preview", thumb: "https://drive.google.com/thumbnail?id=1bNdiHxnJKGA2OZDjGQM_CaUBMeVLTz7D&sz=w400" },
-  { src: "https://drive.google.com/file/d/1qyyCP-J3xsjFhGY-GPm4m-yPSS7HfE20/preview", thumb: "https://drive.google.com/thumbnail?id=1JHcsOYIJqNgDqCI0tMIHdNaKSq5gCt_g&sz=w400" },
-  { src: "https://drive.google.com/file/d/1wOB6vR1HqU4pm5g-ElsinmNZ0yMy9UG3/preview", thumb: "https://drive.google.com/thumbnail?id=13TsJzXn2RWzuV5MRkLdkl1mGBj95a2vm&sz=w400" },
-  { src: "https://drive.google.com/file/d/1xBfKLvsphbhKskk9fJSjyhc-nzt6448z/preview", thumb: "https://drive.google.com/thumbnail?id=1yGwt978ThC2YYGKeGmmm3WovVxMBZYQZ&sz=w400" },
-  { src: "https://drive.google.com/file/d/1UxPsOhpQsRW4ENdPaePD9zSreqO4XtuT/preview", thumb: "https://drive.google.com/thumbnail?id=1MO4eUU_Jnk5hUASt2Lb30U8aXEV9i_P4&sz=w400" },
-  { src: "https://drive.google.com/file/d/1vVmfmVWHAFoAqP6Y1_izr-Py6oQaUnLt/preview", thumb: "https://drive.google.com/thumbnail?id=1oFvPF5_1o6JmOK7KTgLhyGJ_6MhFKgk6&sz=w400" },
-  { src: "https://drive.google.com/file/d/1i0scwSKdIwTKgwizRUIpSzdrtqgsvrM-/preview", thumb: "https://drive.google.com/thumbnail?id=1Of2On5e77KIBYWlLZLMKmkDGpQXfVJld&sz=w400" },
-  { src: "https://drive.google.com/file/d/1bxonv2OSJ7y4IwFA8hhCP2cxHbPVGngV/preview", thumb: "https://drive.google.com/thumbnail?id=1T8WZnkSepCGt2UD8G8d3Zld249TYdD_j&sz=w400" },
-  { src: "https://drive.google.com/file/d/1fmLZcML5ZSXDp26SZOCK5EMmPT15kVtr/preview", thumb: "https://drive.google.com/thumbnail?id=1KR5P-ia5bgzKHDl3nkMZFB6i-osF5okU&sz=w400" },
-  { src: "https://drive.google.com/file/d/18vAbH7aDIZpWmK9_dsSSHIfQNm-OTd47/preview", thumb: "https://drive.google.com/thumbnail?id=1dWcaoBpU2H8ZqGHONpGv2QNvFzX5gHfV&sz=w400" },
+  "https://drive.google.com/file/d/15eODuMf9Xgm12J4S3poXrhB1daNyCena/preview",
+  "https://drive.google.com/file/d/1_S4s9eOYB_9Y3uJHxHn0c4-jlidSgJOg/preview",
+  "https://drive.google.com/file/d/11yOSpU2lsBeeoI-U1-jx5jNOzMGLr7eF/preview",
+  "https://drive.google.com/file/d/1PLnpYyCBxbfJsdxW6vPFv61Tw72MZmx8/preview",
+  "https://drive.google.com/file/d/1dvuLw3Yr4hKBwfTUYM2eHKMMSGj-AMfe/preview",
+  "https://drive.google.com/file/d/1xawA3DCigqyVS8Amhw3euE_6lMTkJmOg/preview",
+  "https://drive.google.com/file/d/1qyyCP-J3xsjFhGY-GPm4m-yPSS7HfE20/preview",
+  "https://drive.google.com/file/d/1wOB6vR1HqU4pm5g-ElsinmNZ0yMy9UG3/preview",
+  "https://drive.google.com/file/d/1xBfKLvsphbhKskk9fJSjyhc-nzt6448z/preview",
+  "https://drive.google.com/file/d/1UxPsOhpQsRW4ENdPaePD9zSreqO4XtuT/preview",
+  "https://drive.google.com/file/d/1vVmfmVWHAFoAqP6Y1_izr-Py6oQaUnLt/preview",
+  "https://drive.google.com/file/d/1i0scwSKdIwTKgwizRUIpSzdrtqgsvrM-/preview",
+  "https://drive.google.com/file/d/1bxonv2OSJ7y4IwFA8hhCP2cxHbPVGngV/preview",
+  "https://drive.google.com/file/d/1fmLZcML5ZSXDp26SZOCK5EMmPT15kVtr/preview",
+  "https://drive.google.com/file/d/18vAbH7aDIZpWmK9_dsSSHIfQNm-OTd47/preview",
 ];
 
 const LONG_FORM_CHIPS = [
@@ -143,17 +143,49 @@ export default function NewPortfolioLayout() {
           </div>
         </nav>
 
+        {/* Background orbs */}
+        <div className="hero-orb hero-orb--1" />
+        <div className="hero-orb hero-orb--2" />
+        <div className="hero-orb hero-orb--3" />
+
         <div className="hero-container">
+          {/* Profile visual block */}
+          <div className="hero-profile-block">
+            <div className="hero-ring" />
+            <div className="hero-ring hero-ring--outer" />
+            <img src="/images/5.png" alt="Naukhaiz Anjum" className="hero-avatar" loading="eager" />
+            {/* Floating badges */}
+            <div className="hero-badge hero-badge--trp">
+              <img src="/images/top-rated-plus-badge.png" alt="" className="hero-badge-icon" />
+              <span>Top Rated Plus</span>
+            </div>
+            <div className="hero-badge hero-badge--stars">
+              <img src="/images/5-star.png" alt="" className="hero-badge-icon hero-badge-icon--stars" />
+              <span>5.0 on Upwork</span>
+            </div>
+            <div className="hero-badge hero-badge--projects">
+              <i className="bx bx-video" />
+              <span>500+ Videos Edited</span>
+            </div>
+          </div>
+
+          {/* Text block */}
           <div className="hero-text">
-            <span className="intro-badge">👋 HEY THERE! I&apos;M</span>
-            <h1>Naukhaiz Anjum</h1>
-            <h2>Video Editor · Bringing Your Vision to Life, Frame by Frame</h2>
-            <p>
-              Creating high-quality video content that tells your story in the most compelling way possible. From concept to final cut, I handle every aspect of video editing with meticulous attention to detail, ensuring your content resonates with your audience and stands out from the crowd.
+            <h1>
+              <span className="hero-name-line">Naukhaiz</span>
+              <span className="hero-name-line hero-name-accent">Anjum</span>
+            </h1>
+            <p className="hero-role">Video Editor &middot; Motion Designer &middot; Storyteller</p>
+            <p className="hero-desc">
+              From concept to final cut — I craft videos that captivate audiences, drive engagement, and elevate brands. Trusted by founders, agencies, and creators worldwide.
             </p>
-            <div className="hero-buttons">
-              <a href="#cta" className="btn btn-secondary btn-lg">Get In Touch</a>
-              <a href="#portfolio" className="btn btn-primary btn-lg">View Portfolio</a>
+            <div className="hero-actions">
+              <a href="#cta" className="btn btn-primary btn-lg hero-cta-main">
+                <i className="bx bx-conversation" /> Let&apos;s Talk
+              </a>
+              <a href="#portfolio" className="btn btn-secondary btn-lg hero-cta-secondary">
+                <i className="bx bx-play-circle" /> Watch My Work
+              </a>
             </div>
             <div className="hero-social">
               <a href="https://www.upwork.com/freelancers/naukhaiz" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><i className="bx bxl-upwork" /></a>
@@ -162,173 +194,227 @@ export default function NewPortfolioLayout() {
               <a href="mailto:naukhaizanjum252@gmail.com" aria-label="Email"><i className="bx bx-envelope" /></a>
             </div>
           </div>
-          <div className="hero-image">
-            <div className="hero-bg-shape" />
-            <img src="/images/5.png" alt="Naukhaiz Anjum - Video Editor" loading="eager" />
+        </div>
+
+        {/* Scrolling marquee strip */}
+        <div className="hero-marquee">
+          <div className="hero-marquee-track">
+            {[1, 2].map((n) => (
+              <span key={n} className="hero-marquee-content" aria-hidden={n === 2}>
+                VIDEO EDITING &nbsp;·&nbsp; MOTION GRAPHICS &nbsp;·&nbsp; COLOR GRADING &nbsp;·&nbsp; SOUND DESIGN &nbsp;·&nbsp; STORYTELLING &nbsp;·&nbsp; YOUTUBE &nbsp;·&nbsp; DOCUMENTARIES &nbsp;·&nbsp; ANIMATION &nbsp;·&nbsp; SHORT FORM &nbsp;·&nbsp; LONG FORM &nbsp;·&nbsp;&nbsp;
+              </span>
+            ))}
           </div>
         </div>
+
         <div className="scroll-down-indicator"><span /></div>
       </header>
 
       <main>
-        <section id="about">
-          <div className="container">
-            <h2>About me</h2>
-            <p className="subtitle">Top Rated Plus video editor with a passion for storytelling</p>
-            <div className="divider" />
-            <p>I&apos;m Naukhaiz Anjum, a video editor who believes every frame tells a story. I help brands, creators, and businesses bring their visions to life through compelling visual narratives—from short-form social content to long-form documentaries and everything in between.</p>
-            <p>I specialize in creating content that not only looks great but drives engagement and delivers results. Whether it&apos;s a brand commercial, YouTube series, or documentary project, I bring fresh creativity and technical precision to every edit.</p>
-            <p>My clients value reliability, fast turnaround, and the ability to take feedback and apply creativity to deliver exactly what they need. I&apos;d love to do the same for you.</p>
-            <a href="#portfolio" className="btn-link">View My Work</a>
-          </div>
-        </section>
-
-        <section id="services">
-          <h2>What I do</h2>
-          <p className="subtitle">Professional video services tailored to your needs</p>
-          <div className="divider" />
-          <div className="service-cards">
-            {[
-              { icon: "bx-video", title: "Video Editing", desc: "Professional editing with color grading, sound design, and seamless transitions. Short-form and long-form content for YouTube, social media, and more." },
-              { icon: "bx-shape-triangle", title: "Motion Graphics", desc: "Eye-catching motion graphics and animations. Cool typography and visual elements that give your videos a polished, professional look." },
-              { icon: "bx-edit", title: "Scriptwriting & Storytelling", desc: "Compelling narratives that capture your message and keep viewers hooked. From concept to final cut, I craft stories that resonate." },
-              { icon: "bx-camera-movie", title: "Long-Form & Documentary", desc: "In-depth pieces that explore topics in depth. Documentary-style editing, YouTube long-form, and content that builds rhythm and keeps audiences engaged." },
-              { icon: "bx-volume-full", title: "Audio & Sound Design", desc: "Clear audio, mixing, and sound design that supports your story. Professional quality that enhances every frame." },
-              { icon: "bx-palette", title: "Brand & Social Content", desc: "Strategic video content for brands and creators. TikTok-style edits, captions, and formats optimized for engagement and reach." },
-            ].map((item) => (
-              <div key={item.title} className="card">
-                <i className={`bx ${item.icon}`} />
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
+        {/* ══════ ABOUT ══════ */}
+        <section id="about" className="section-about">
+          <div className="container-narrow">
+            <span className="section-label">About</span>
+            <h2 className="section-heading">The Editor Behind the Edit</h2>
+            <div className="about-grid">
+              <div className="about-copy">
+                <p>I&apos;m Naukhaiz Anjum — a video editor who believes every frame tells a story. I help brands, creators, and businesses bring their visions to life through compelling visual narratives.</p>
+                <p>Whether it&apos;s a brand commercial, YouTube series, or documentary project, I bring fresh creativity and technical precision to every edit. My clients value reliability, fast turnaround, and the ability to take feedback and deliver exactly what they need.</p>
               </div>
-            ))}
-          </div>
-          <a href="#portfolio" className="btn-link">View Portfolio</a>
-        </section>
-
-        <section id="portfolio">
-          <h2>Portfolio</h2>
-          <p className="subtitle">Short-form and long-form videos — click any thumbnail to watch</p>
-          <div className="divider" />
-          <h3 className="portfolio-subtitle">Short Form</h3>
-          <p className="portfolio-section-desc">The Ultimate Video Editing Experience — I specialize in creating visually stunning videos using the latest techniques and tools. With a passion for storytelling and a keen eye for detail, I transform raw footage into captivating narratives. Whether it&apos;s a corporate video, a cinematic project, or dynamic social media content, I bring your vision to life with precision and creativity.</p>
-          <div className="portfolio-grid portfolio-grid--short">
-            {SHORT_FORM_VIDEOS.map((v, i) => (
-              <button key={i} type="button" className="portfolio-video-card" onClick={() => openModal(v.src)} aria-label={`Play short-form video ${i + 1}`}>
-                <img src={v.thumb} alt={`Short-form video ${i + 1}`} loading="lazy" />
-                <span className="portfolio-play"><i className="bx bx-play" /></span>
-              </button>
-            ))}
-          </div>
-
-          <h3 className="portfolio-subtitle">Long Form</h3>
-          <p className="portfolio-section-desc long-form-intro">Comprehensive Creations — Discover an array of extended content pieces, each a testament to the art of storytelling through video. These in-depth long-form projects provide a detailed exploration of editing techniques, narrative structures, and the creative processes behind my most ambitious works. Choose a category below to load videos from that folder.</p>
-          <div className="long-form-chips" role="tablist" aria-label="Filter long-form videos by category">
-            {LONG_FORM_CHIPS.map((chip) => (
-              <button key={chip.id} type="button" className={`long-form-chip ${activeFilter === chip.id ? "active" : ""}`} onClick={() => setActiveFilter(chip.id)} role="tab" aria-selected={activeFilter === chip.id}>{chip.label}</button>
-            ))}
-          </div>
-          <div className="long-form-videos-container" aria-live="polite">
-            <div className="long-form-loading" hidden={!longFormLoading} style={longFormLoading ? {} : { display: "none" }}>
-              <span className="long-form-loading-spinner" /><p>Loading…</p>
-            </div>
-            {!longFormLoading && longFormError && (
-              <div className="long-form-error">
-                <p>Could not load video data. Ensure GOOGLE_DRIVE_API_KEY is set and the API is configured.</p>
-              </div>
-            )}
-            {!longFormLoading && !longFormError && (
-              <div className="portfolio-grid long-form-videos-grid">
-                {displayedVideos.length === 0 ? (
-                  <p className="long-form-empty">No videos in this category.</p>
-                ) : (
-                  displayedVideos.map((video) => (
-                    <button key={video.id} type="button" className="portfolio-video-card long-form-video-card" onClick={() => openModal(video.link)} aria-label={`Play ${video.name}`}>
-                      <img src={video.thumbnail} alt={video.name} loading="lazy" />
-                      <span className="portfolio-play"><i className="bx bx-play" /></span>
-                    </button>
-                  ))
-                )}
-              </div>
-            )}
-          </div>
-        </section>
-
-        <section id="testimonials">
-          <h2>What Clients Say</h2>
-          <p className="subtitle">Trusted by founders, agencies, and creators worldwide</p>
-          <div className="divider" />
-          <p className="section-intro">Discover the impact of working with me through the words of those who have experienced my dedication and commitment to excellence firsthand.</p>
-          <div className="testimonials-container">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="testimonial-card">
-                <div className="stars">
-                  {[1, 2, 3, 4, 5].map((i) => <i key={i} className="bx bxs-star" />)}
-                </div>
-                <p dangerouslySetInnerHTML={{ __html: t.quote }} />
-                <div className="client-info">
-                  <div className="client-avatar"><span>{t.initial}</span></div>
-                  <div>
-                    <h4>{t.name}</h4>
-                    <span>{t.role}</span>
+              <div className="about-stats">
+                {[
+                  { value: "500+", label: "Videos Edited", icon: "bx-video" },
+                  { value: "50+", label: "Happy Clients", icon: "bx-group" },
+                  { value: "5.0", label: "Upwork Rating", icon: "bxs-star" },
+                  { value: "3+", label: "Years Experience", icon: "bx-time-five" },
+                ].map((s) => (
+                  <div key={s.label} className="about-stat-card">
+                    <i className={`bx ${s.icon}`} />
+                    <strong>{s.value}</strong>
+                    <span>{s.label}</span>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <div className="testimonials-cta">
-            <a href="https://www.upwork.com/freelancers/naukhaiz" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">View all reviews on Upwork</a>
+            </div>
           </div>
         </section>
 
-        <section id="skills">
-          <h2>Technical Skills</h2>
-          <p className="subtitle">Industry-leading software and creative techniques</p>
-          <div className="divider" />
-          <div className="skills-container">
-            <div className="skills-text">
-              <p>I&apos;ve mastered video production using cutting-edge software and techniques—from color grading and motion graphics to narrative pacing. I combine technical precision with creative vision and stay updated with industry trends to deliver the most effective solutions for your projects.</p>
-              <a href="#cta" className="btn-link">Let&apos;s Collaborate</a>
-            </div>
-            <div className="skills-bars">
-              {["CAPCUT PRO", "ADOBE PREMIERE PRO", "AFTER EFFECTS", "THUMBNAIL DESIGN", "AI VOICE OVERS", "MOTION GRAPHICS", "COLOR GRADING"].map((label, i) => (
-                <div key={label} className="skill">
-                  <p>{label}</p>
-                  <div className="bar"><div className="progress" style={{ width: [88, 95, 90, 85, 90, 88, 90][i] + "%" }} /></div>
+        {/* ══════ SERVICES ══════ */}
+        <section id="services" className="section-services">
+          <div className="container-narrow">
+            <span className="section-label">Services</span>
+            <h2 className="section-heading">What I Do</h2>
+            <p className="section-sub">Professional video services tailored to your needs</p>
+            <div className="services-grid">
+              {[
+                { icon: "bx-video", title: "Video Editing", desc: "Professional editing with color grading, sound design, and seamless transitions for YouTube, social media, and more." },
+                { icon: "bx-shape-triangle", title: "Motion Graphics", desc: "Eye-catching motion graphics, cool typography, and visual elements that give your videos a polished, professional look." },
+                { icon: "bx-edit", title: "Scriptwriting", desc: "Compelling narratives that capture your message and keep viewers hooked from start to finish." },
+                { icon: "bx-camera-movie", title: "Documentary & Long-Form", desc: "In-depth pieces with documentary-style editing, rhythm, and narrative pacing that keeps audiences engaged." },
+                { icon: "bx-volume-full", title: "Sound Design", desc: "Clear audio mixing and sound design that supports your story. Professional quality that enhances every frame." },
+                { icon: "bx-palette", title: "Brand & Social", desc: "Strategic video content for brands. TikTok-style edits, captions, and formats optimized for engagement and reach." },
+              ].map((item) => (
+                <div key={item.title} className="service-card">
+                  <div className="service-card-icon">
+                    <i className={`bx ${item.icon}`} />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="cta">
-          <div className="container">
-            <div className="cta-container">
-              <div className="cta-image">
-                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=1887&auto=format&fit=crop" alt="Creative video production" loading="lazy" />
+        {/* ══════ PORTFOLIO ══════ */}
+        <section id="portfolio" className="section-portfolio">
+          <div className="container-narrow">
+            <span className="section-label">Portfolio</span>
+            <h2 className="section-heading">My Work</h2>
+            <p className="section-sub">Click any video to watch — short-form and long-form</p>
+
+            <div className="portfolio-block">
+              <h3 className="portfolio-subtitle"><i className="bx bx-mobile-alt" /> Short Form</h3>
+              <div className="portfolio-grid portfolio-grid--short">
+                {SHORT_FORM_VIDEOS.map((src, i) => (
+                  <div key={i} className="short-form-embed-card">
+                    <iframe
+                      src={src}
+                      title={`Short-form video ${i + 1}`}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </div>
+                ))}
               </div>
-              <div className="cta-text">
-                <h2>Let&apos;s Connect</h2>
-                <p>Have a video project in mind? Let&apos;s bring your vision to life. Whether it&apos;s social media content, promotional videos, or something unique, I&apos;m here to help. Reach out through the platforms below or contact me directly. Let&apos;s create something great together!</p>
-                <div className="cta-buttons">
-                  <a href="https://www.upwork.com/freelancers/naukhaiz" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">Upwork</a>
-                  <a href="https://www.linkedin.com/in/naukhaiz-anjum-302218158/" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">LinkedIn</a>
-                  <a href="https://wa.me/+923314411708" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">WhatsApp</a>
-                  <a href="mailto:naukhaizanjum252@gmail.com" className="btn btn-primary btn-lg">Email</a>
+            </div>
+
+            <div className="portfolio-block">
+              <h3 className="portfolio-subtitle"><i className="bx bx-film" /> Long Form</h3>
+              <div className="long-form-chips" role="tablist" aria-label="Filter long-form videos by category">
+                {LONG_FORM_CHIPS.map((chip) => (
+                  <button key={chip.id} type="button" className={`long-form-chip ${activeFilter === chip.id ? "active" : ""}`} onClick={() => setActiveFilter(chip.id)} role="tab" aria-selected={activeFilter === chip.id}>{chip.label}</button>
+                ))}
+              </div>
+              <div className="long-form-videos-container" aria-live="polite">
+                <div className="long-form-loading" hidden={!longFormLoading} style={longFormLoading ? {} : { display: "none" }}>
+                  <span className="long-form-loading-spinner" /><p>Loading…</p>
                 </div>
+                {!longFormLoading && longFormError && (
+                  <div className="long-form-error">
+                    <p>Could not load video data. Ensure GOOGLE_DRIVE_API_KEY is set and the API is configured.</p>
+                  </div>
+                )}
+                {!longFormLoading && !longFormError && (
+                  <div className="portfolio-grid long-form-videos-grid">
+                    {displayedVideos.length === 0 ? (
+                      <p className="long-form-empty">No videos in this category.</p>
+                    ) : (
+                      displayedVideos.map((video) => (
+                        <button key={video.id} type="button" className="portfolio-video-card long-form-video-card" onClick={() => openModal(video.link)} aria-label={`Play ${video.name}`}>
+                          <img src={video.thumbnail} alt={video.name} loading="lazy" />
+                          <span className="portfolio-play"><i className="bx bx-play" /></span>
+                        </button>
+                      ))
+                    )}
+                  </div>
+                )}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════ TESTIMONIALS ══════ */}
+        <section id="testimonials" className="section-testimonials">
+          <div className="container-narrow">
+            <span className="section-label">Reviews</span>
+            <h2 className="section-heading">What Clients Say</h2>
+            <div className="testimonials-grid">
+              {TESTIMONIALS.map((t) => (
+                <div key={t.name} className="testimonial-card">
+                  <div className="testimonial-quote-mark"><i className="bx bxs-quote-left" /></div>
+                  <div className="stars">
+                    {[1, 2, 3, 4, 5].map((i) => <i key={i} className="bx bxs-star" />)}
+                  </div>
+                  <div className="testimonial-body" dangerouslySetInnerHTML={{ __html: t.quote }} />
+                  <div className="client-info">
+                    <div className="client-avatar"><span>{t.initial}</span></div>
+                    <div>
+                      <h4>{t.name}</h4>
+                      <span>{t.role}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="section-cta-row">
+              <a href="https://www.upwork.com/freelancers/naukhaiz" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+                <i className="bx bxl-upwork" /> View All Reviews
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════ SKILLS / TOOLS ══════ */}
+        <section id="skills" className="section-skills">
+          <div className="container-narrow">
+            <span className="section-label">Tools</span>
+            <h2 className="section-heading">Tech I Work With</h2>
+            <div className="skills-tag-grid">
+              {[
+                { category: "Editing", items: ["Adobe Premiere Pro", "CapCut Pro", "DaVinci Resolve"] },
+                { category: "Motion & VFX", items: ["After Effects", "Motion Graphics", "Keyframe Animation"] },
+                { category: "Audio", items: ["Sound Design", "Audio Mixing", "AI Voice Overs", "ElevenLabs"] },
+                { category: "Design", items: ["Thumbnail Design", "Color Grading", "Typography", "Brand Identity"] },
+              ].map((group) => (
+                <div key={group.category} className="skill-group">
+                  <h3 className="skill-group-title">{group.category}</h3>
+                  <div className="skill-tags">
+                    {group.items.map((item) => (
+                      <span key={item} className="skill-tag">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════ CTA ══════ */}
+        <section id="cta" className="section-cta">
+          <div className="container-narrow cta-inner">
+            <div className="cta-icon-wrap">
+              <i className="bx bxs-camera-movie" />
+            </div>
+            <h2 className="section-heading">Ready to Start?</h2>
+            <p className="cta-desc">Have a video project in mind? Let&apos;s bring your vision to life. Whether it&apos;s social media content, promotional videos, or something unique — I&apos;m here to help.</p>
+            <div className="cta-buttons">
+              <a href="https://wa.me/+923314411708" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg cta-btn-main">
+                <i className="bx bxl-whatsapp" /> WhatsApp Me
+              </a>
+              <a href="https://www.upwork.com/freelancers/naukhaiz" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
+                <i className="bx bxl-upwork" /> Hire on Upwork
+              </a>
+              <a href="https://www.linkedin.com/in/naukhaiz-anjum-302218158/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg">
+                <i className="bx bxl-linkedin" /> LinkedIn
+              </a>
+              <a href="mailto:naukhaizanjum252@gmail.com" className="btn btn-secondary btn-lg">
+                <i className="bx bx-envelope" /> Email
+              </a>
             </div>
           </div>
         </section>
       </main>
 
       <footer>
-        <div className="footer-container">
-          <div className="footer-logo">
-            <a href="#" className="logo"><i className="bx bxs-camera-movie" /> NAUKHAIZ ANJUM</a>
-          </div>
-          <div className="footer-copyright">
-            <p>© 2026 Naukhaiz Anjum · Video Editor · Top Rated Plus</p>
+        <div className="footer-inner">
+          <a href="#" className="footer-logo"><i className="bx bxs-camera-movie" /> NAUKHAIZ</a>
+          <div className="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Reviews</a>
           </div>
           <div className="footer-social">
             <a href="https://www.upwork.com/freelancers/naukhaiz" target="_blank" rel="noopener noreferrer" aria-label="Upwork"><i className="bx bxl-upwork" /></a>
@@ -336,6 +422,7 @@ export default function NewPortfolioLayout() {
             <a href="https://wa.me/+923314411708" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i className="bx bxl-whatsapp" /></a>
             <a href="mailto:naukhaizanjum252@gmail.com" aria-label="Email"><i className="bx bx-envelope" /></a>
           </div>
+          <p className="footer-copy">&copy; 2026 Naukhaiz Anjum &middot; Video Editor &middot; Top Rated Plus</p>
         </div>
       </footer>
 

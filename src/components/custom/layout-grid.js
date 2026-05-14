@@ -38,7 +38,7 @@ export const longFormCards = [
     ),
     className: "col-span-2 md:col-span-2",
     thumbnail:
-      "https://drive.google.com/uc?id=18KlARBcdQCjUkXAKWOduFXHHjBQrwcRb",
+      "https://lh3.googleusercontent.com/d/18KlARBcdQCjUkXAKWOduFXHHjBQrwcRb",
     position: "bottom",
     removeCover: true,
   },
@@ -61,7 +61,7 @@ export const longFormCards = [
     ),
     className: "col-span-2 md:col-span-1",
     thumbnail:
-      "https://drive.google.com/uc?id=18LSgp1NV1c6513VRuPxJlwAkN9_KkzgG",
+      "https://lh3.googleusercontent.com/d/18LSgp1NV1c6513VRuPxJlwAkN9_KkzgG",
   },
   {
     id: 3,
@@ -82,7 +82,7 @@ export const longFormCards = [
     ),
     className: "col-span-2 md:col-span-1",
     thumbnail:
-      "https://drive.google.com/uc?id=18M7rHSZzFG0A1ImL-tCgesDwyiURPHJa",
+      "https://lh3.googleusercontent.com/d/18M7rHSZzFG0A1ImL-tCgesDwyiURPHJa",
   },
   {
     id: 4,
@@ -103,7 +103,7 @@ export const longFormCards = [
     ),
     className: "col-span-2",
     thumbnail:
-      "https://drive.google.com/uc?id=18No4E4Iit08UO5aHJ9P3KdLNvnAVQohk",
+      "https://lh3.googleusercontent.com/d/18No4E4Iit08UO5aHJ9P3KdLNvnAVQohk",
     removeCover: true,
   },
   {
@@ -125,7 +125,7 @@ export const longFormCards = [
     ),
     className: "col-span-2",
     thumbnail:
-      "https://drive.google.com/uc?id=18RImXxCn_7XZ1psz3CAezWTfc-cg3EBn",
+      "https://lh3.googleusercontent.com/d/18RImXxCn_7XZ1psz3CAezWTfc-cg3EBn",
     position: "bottom",
     removeCover: true,
   },
@@ -148,7 +148,7 @@ export const longFormCards = [
     ),
     className: "col-span-2 md:col-span-1",
     thumbnail:
-      "https://drive.google.com/uc?id=18VlZZRwqVQApeurilMf7zpaT7us9kyhS",
+      "https://lh3.googleusercontent.com/d/18VlZZRwqVQApeurilMf7zpaT7us9kyhS",
     removeCover: true,
   },
   {
@@ -170,7 +170,7 @@ export const longFormCards = [
     ),
     className: "col-span-3 h-96",
     thumbnail:
-      "https://drive.google.com/uc?id=18VvVIIvEwVNxZGfhTv0W26x7uEIVsfK_",
+      "https://lh3.googleusercontent.com/d/18VvVIIvEwVNxZGfhTv0W26x7uEIVsfK_",
     removeCover: true,
   },
 ];
