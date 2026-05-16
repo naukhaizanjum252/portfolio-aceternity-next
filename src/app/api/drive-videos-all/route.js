@@ -22,7 +22,7 @@ async function fetchVideosInFolder(folderId) {
     id: file.id,
     name: file.name,
     link: `https://drive.google.com/file/d/${file.id}/preview`,
-    thumbnail: file.thumbnailLink || `https://drive.google.com/thumbnail?id=${file.id}&sz=w400`,
+    thumbnail: `/api/drive-thumbnail/${file.id}`,
   }));
 }
 

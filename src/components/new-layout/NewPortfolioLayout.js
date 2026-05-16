@@ -3,23 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import "@/styles/new-portfolio-layout.css";
 
-const SHORT_FORM_VIDEOS = [
-  "https://drive.google.com/file/d/15eODuMf9Xgm12J4S3poXrhB1daNyCena/preview",
-  "https://drive.google.com/file/d/1_S4s9eOYB_9Y3uJHxHn0c4-jlidSgJOg/preview",
-  "https://drive.google.com/file/d/11yOSpU2lsBeeoI-U1-jx5jNOzMGLr7eF/preview",
-  "https://drive.google.com/file/d/1PLnpYyCBxbfJsdxW6vPFv61Tw72MZmx8/preview",
-  "https://drive.google.com/file/d/1dvuLw3Yr4hKBwfTUYM2eHKMMSGj-AMfe/preview",
-  "https://drive.google.com/file/d/1xawA3DCigqyVS8Amhw3euE_6lMTkJmOg/preview",
-  "https://drive.google.com/file/d/1qyyCP-J3xsjFhGY-GPm4m-yPSS7HfE20/preview",
-  "https://drive.google.com/file/d/1wOB6vR1HqU4pm5g-ElsinmNZ0yMy9UG3/preview",
-  "https://drive.google.com/file/d/1xBfKLvsphbhKskk9fJSjyhc-nzt6448z/preview",
-  "https://drive.google.com/file/d/1UxPsOhpQsRW4ENdPaePD9zSreqO4XtuT/preview",
-  "https://drive.google.com/file/d/1vVmfmVWHAFoAqP6Y1_izr-Py6oQaUnLt/preview",
-  "https://drive.google.com/file/d/1i0scwSKdIwTKgwizRUIpSzdrtqgsvrM-/preview",
-  "https://drive.google.com/file/d/1bxonv2OSJ7y4IwFA8hhCP2cxHbPVGngV/preview",
-  "https://drive.google.com/file/d/1fmLZcML5ZSXDp26SZOCK5EMmPT15kVtr/preview",
-  "https://drive.google.com/file/d/18vAbH7aDIZpWmK9_dsSSHIfQNm-OTd47/preview",
-];
 
 const LONG_FORM_CHIPS = [
   { id: "all", label: "All" },
@@ -45,6 +28,8 @@ export default function NewPortfolioLayout() {
   const [loadingVisible, setLoadingVisible] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalEmbedUrl, setModalEmbedUrl] = useState("");
+  const [shortFormVideos, setShortFormVideos] = useState([]);
+  const [shortFormLoading, setShortFormLoading] = useState(true);
   const [longFormData, setLongFormData] = useState(null);
   const [longFormLoading, setLongFormLoading] = useState(true);
   const [longFormError, setLongFormError] = useState(false);
@@ -56,6 +41,14 @@ export default function NewPortfolioLayout() {
   }, []);
 
   useEffect(() => {
+    // Preload hero image for fast first paint
+    const preload = document.createElement("link");
+    preload.rel = "preload";
+    preload.as = "image";
+    preload.href = "/images/5.webp";
+    preload.type = "image/webp";
+    document.head.appendChild(preload);
+
     const link = document.createElement("link");
     link.href = "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css";
     link.rel = "stylesheet";
@@ -65,12 +58,19 @@ export default function NewPortfolioLayout() {
     link2.rel = "stylesheet";
     document.head.appendChild(link2);
     return () => {
+      preload.remove();
       link.remove();
       link2.remove();
     };
   }, []);
 
   useEffect(() => {
+    fetch("/api/drive-videos-short")
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error("Fetch failed"))))
+      .then((data) => setShortFormVideos(data))
+      .catch(() => setShortFormVideos([]))
+      .finally(() => setShortFormLoading(false));
+
     fetch("/api/drive-videos-all")
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error("Fetch failed"))))
       .then((data) => {
@@ -153,7 +153,7 @@ export default function NewPortfolioLayout() {
           <div className="hero-profile-block">
             <div className="hero-ring" />
             <div className="hero-ring hero-ring--outer" />
-            <img src="/images/5.png" alt="Naukhaiz Anjum" className="hero-avatar" loading="eager" />
+            <img src="/images/5.webp" alt="Naukhaiz Anjum" className="hero-avatar" loading="eager" fetchPriority="high" />
             {/* Floating badges */}
             <div className="hero-badge hero-badge--trp">
               <img src="/images/top-rated-plus-badge.png" alt="" className="hero-badge-icon" />
@@ -275,19 +275,27 @@ export default function NewPortfolioLayout() {
 
             <div className="portfolio-block">
               <h3 className="portfolio-subtitle"><i className="bx bx-mobile-alt" /> Short Form</h3>
-              <div className="portfolio-grid portfolio-grid--short">
-                {SHORT_FORM_VIDEOS.map((src, i) => (
-                  <div key={i} className="short-form-embed-card">
-                    <iframe
-                      src={src}
-                      title={`Short-form video ${i + 1}`}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                ))}
-              </div>
+              {shortFormLoading ? (
+                <div className="long-form-loading">
+                  <span className="long-form-loading-spinner" /><p>Loading…</p>
+                </div>
+              ) : shortFormVideos.length === 0 ? (
+                <p className="long-form-empty">No short-form videos found.</p>
+              ) : (
+                <div className="portfolio-grid portfolio-grid--short">
+                  {shortFormVideos.map((video) => (
+                    <div key={video.id} className="short-form-embed-card">
+                      <iframe
+                        src={video.embed}
+                        title={video.name}
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="portfolio-block">
