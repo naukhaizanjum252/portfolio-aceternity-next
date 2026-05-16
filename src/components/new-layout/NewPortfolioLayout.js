@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Head from "next/head";
 import "@/styles/new-portfolio-layout.css";
 
 
@@ -106,6 +107,18 @@ export default function NewPortfolioLayout() {
 
   return (
     <div className="new-portfolio-root">
+      <Head>
+        <title>Naukhaiz Anjum — Video Editor &middot; Top Rated Plus on Upwork</title>
+        <meta name="description" content="Professional video editor with 2000+ videos edited, 70+ happy clients, and a 5.0 rating on Upwork. Specializing in YouTube editing, motion graphics, documentaries, and short-form content." />
+        <meta property="og:title" content="Naukhaiz Anjum — Video Editor · Top Rated Plus" />
+        <meta property="og:description" content="From concept to final cut — I craft videos that captivate audiences, drive engagement, and elevate brands. 2000+ videos edited for founders, agencies, and creators worldwide." />
+        <meta property="og:image" content="/images/5.webp" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Naukhaiz Anjum — Video Editor · Top Rated Plus" />
+        <meta name="twitter:description" content="Professional video editor with 2000+ videos edited and a 5.0 Upwork rating. YouTube, motion graphics, documentaries & more." />
+        <meta name="twitter:image" content="/images/5.webp" />
+      </Head>
       {loadingVisible && (
         <div id="loading-screen">
           <div className="loader">
@@ -165,7 +178,7 @@ export default function NewPortfolioLayout() {
             </div>
             <div className="hero-badge hero-badge--projects">
               <i className="bx bx-video" />
-              <span>500+ Videos Edited</span>
+              <span>2000+ Videos Edited</span>
             </div>
           </div>
 
@@ -223,10 +236,10 @@ export default function NewPortfolioLayout() {
               </div>
               <div className="about-stats">
                 {[
-                  { value: "500+", label: "Videos Edited", icon: "bx-video" },
-                  { value: "50+", label: "Happy Clients", icon: "bx-group" },
+                  { value: "2000+", label: "Videos Edited", icon: "bx-video" },
+                  { value: "70+", label: "Happy Clients", icon: "bx-group" },
                   { value: "5.0", label: "Upwork Rating", icon: "bxs-star" },
-                  { value: "3+", label: "Years Experience", icon: "bx-time-five" },
+                  { value: "5+", label: "Years Experience", icon: "bx-time-five" },
                 ].map((s) => (
                   <div key={s.label} className="about-stat-card">
                     <i className={`bx ${s.icon}`} />
@@ -276,8 +289,10 @@ export default function NewPortfolioLayout() {
             <div className="portfolio-block">
               <h3 className="portfolio-subtitle"><i className="bx bx-mobile-alt" /> Short Form</h3>
               {shortFormLoading ? (
-                <div className="long-form-loading">
-                  <span className="long-form-loading-spinner" /><p>Loading…</p>
+                <div className="skeleton-grid skeleton-grid--short">
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div key={i} className="skeleton-card skeleton-card--short" />
+                  ))}
                 </div>
               ) : shortFormVideos.length === 0 ? (
                 <p className="long-form-empty">No short-form videos found.</p>
@@ -306,9 +321,13 @@ export default function NewPortfolioLayout() {
                 ))}
               </div>
               <div className="long-form-videos-container" aria-live="polite">
-                <div className="long-form-loading" hidden={!longFormLoading} style={longFormLoading ? {} : { display: "none" }}>
-                  <span className="long-form-loading-spinner" /><p>Loading…</p>
-                </div>
+                {longFormLoading && (
+                  <div className="skeleton-grid skeleton-grid--long">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                      <div key={i} className="skeleton-card skeleton-card--long" />
+                    ))}
+                  </div>
+                )}
                 {!longFormLoading && longFormError && (
                   <div className="long-form-error">
                     <p>Could not load video data. Ensure GOOGLE_DRIVE_API_KEY is set and the API is configured.</p>

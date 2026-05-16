@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -80,6 +81,13 @@ const plans = [
 export default function AutomationPricingPage() {
   return (
     <main className="min-h-screen antialiased dark overflow-x-hidden bg-neutral-950">
+      <Head>
+        <title>Pricing — Naukhaiz Anjum · AI &amp; Automation</title>
+        <meta name="description" content="Transparent pricing for custom automation, SaaS, and AI projects. Starter from $500, Growth from $1,500, or Enterprise custom-scoped to your needs." />
+        <meta property="og:title" content="Pricing — Naukhaiz Anjum · AI & Automation" />
+        <meta property="og:description" content="Transparent pricing for custom-coded automations. No platform fees, no surprises." />
+        <meta property="og:type" content="website" />
+      </Head>
       {/* Hero */}
       <section className="relative pt-32 pb-16 px-4">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(2,232,163,0.08)_0%,_transparent_50%)]" />

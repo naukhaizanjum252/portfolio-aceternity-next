@@ -1747,3 +1747,49 @@ button:focus-visible,
 .mt-40 { margin-top: 40px; }
 .hidden { display: none; }
 .visible { display: block; }
+
+/* ─── Shimmer Loading Skeletons ─── */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton-grid {
+  display: grid;
+  gap: 16px;
+}
+.skeleton-grid--short {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+.skeleton-grid--long {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.skeleton-card {
+  border-radius: 16px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+.skeleton-card--short {
+  aspect-ratio: 9 / 16;
+}
+.skeleton-card--long {
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+.skeleton-card--long::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 30%;
+  height: 14px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+}
+
+@media (max-width: 768px) {
+  .skeleton-grid--short { grid-template-columns: repeat(2, 1fr); }
+  .skeleton-grid--long { grid-template-columns: repeat(2, 1fr); }
+}

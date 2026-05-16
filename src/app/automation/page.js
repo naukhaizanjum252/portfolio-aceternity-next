@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Spotlight from "@/components/custom/spotlight";
@@ -707,6 +708,16 @@ const CTA = () => {
 export default function AutomationPage() {
   return (
     <main className="min-h-screen antialiased dark overflow-x-hidden">
+      <Head>
+        <title>Naukhaiz Anjum — AI &amp; Automation Engineer</title>
+        <meta name="description" content="Custom AI automations, SaaS products, and backend systems built from scratch. No-code-free, fully owned solutions for businesses ready to scale." />
+        <meta property="og:title" content="Naukhaiz Anjum — AI & Automation Engineer" />
+        <meta property="og:description" content="Custom-coded automations, internal tools, and AI-powered systems. No Zapier, no Make — just clean code you own." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Naukhaiz Anjum — AI & Automation Engineer" />
+        <meta name="twitter:description" content="Custom AI automations, SaaS products, and backend systems built from scratch." />
+      </Head>
       <Hero />
       <Stats />
       <Projects />

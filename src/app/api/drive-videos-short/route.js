@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const GOOGLE_DRIVE_API_KEY = process.env.GOOGLE_DRIVE_API_KEY;
 const SHORT_FORM_FOLDER_ID = "1QRT8at05oEc1gp2ISrexqdBFkkecu30z";
 
